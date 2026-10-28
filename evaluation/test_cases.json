@@ -1,0 +1,589 @@
+{
+  "meta": {
+    "name": "LX-2000 售后分诊评测集",
+    "version": 1,
+    "total": 34,
+    "manual": "printer_LX2000.md",
+    "categories": {
+      "insufficient_info": "信息不足",
+      "sufficient_info": "信息足够",
+      "high_risk": "高风险",
+      "unsupported_or_no_match": "不支持/无匹配",
+      "feedback_loop": "诊断后反馈闭环"
+    }
+  },
+  "cases": [
+    {
+      "id": "INS-01",
+      "category": "insufficient_info",
+      "description": "只有笼统描述，没有型号，应追问型号",
+      "messages": ["机器坏了"],
+      "expected": {
+        "turn_actions": ["ask"],
+        "final_action": "ask",
+        "ask_count": 1,
+        "message_contains": ["型号", "LX-2000"]
+      }
+    },
+    {
+      "id": "INS-02",
+      "category": "insufficient_info",
+      "description": "补充型号后仍无故障现象，应追问现象",
+      "messages": ["机器坏了", "LX-2000"],
+      "expected": {
+        "turn_actions": ["ask", "ask"],
+        "final_action": "ask",
+        "ask_count": 2,
+        "message_contains": ["故障现象"]
+      }
+    },
+    {
+      "id": "INS-03",
+      "category": "insufficient_info",
+      "description": "只给型号，没有说明哪里坏了，应追问现象",
+      "messages": ["LX-2000"],
+      "expected": {
+        "turn_actions": ["ask"],
+        "final_action": "ask",
+        "ask_count": 1,
+        "message_contains": ["故障现象"]
+      }
+    },
+    {
+      "id": "INS-04",
+      "category": "insufficient_info",
+      "description": "型号 1 次、现象 2 次追问后独立预算耗尽，转人工",
+      "messages": ["机器坏了", "LX-2000", "就是坏了", "不知道"],
+      "expected": {
+        "turn_actions": ["ask", "ask", "ask", "handoff"],
+        "final_action": "handoff",
+        "reason_code": "insufficient_info",
+        "ask_count": 3,
+        "model_ask_count": 1,
+        "fault_ask_count": 2,
+        "follow_up_count": 3,
+        "asked_slots_count": 3,
+        "risk_level": "low",
+        "queue": "general_after_sales",
+        "out_of_scope": false,
+        "message_contains": ["转人工", "交接单"]
+      }
+    },
+    {
+      "id": "INS-05",
+      "category": "insufficient_info",
+      "description": "型号已确认但现象两次追问仍不明，转人工",
+      "messages": ["LX-2000", "就是不好用", "不知道"],
+      "expected": {
+        "turn_actions": ["ask", "ask", "handoff"],
+        "final_action": "handoff",
+        "reason_code": "insufficient_info",
+        "ask_count": 2,
+        "model_ask_count": 0,
+        "fault_ask_count": 2,
+        "follow_up_count": 2,
+        "asked_slots_count": 2,
+        "risk_level": "low",
+        "queue": "general_after_sales",
+        "out_of_scope": false,
+        "message_contains": ["转人工", "交接单"]
+      }
+    },
+    {
+      "id": "INS-06",
+      "category": "insufficient_info",
+      "description": "型号和现象都无法确认，独立预算耗尽后转人工",
+      "messages": ["我不知道型号", "也不清楚哪坏了", "反正不能用", "随便吧"],
+      "expected": {
+        "turn_actions": ["ask", "ask", "ask", "handoff"],
+        "final_action": "handoff",
+        "reason_code": "insufficient_info",
+        "ask_count": 3,
+        "model_ask_count": 2,
+        "fault_ask_count": 1,
+        "follow_up_count": 3,
+        "asked_slots_count": 3,
+        "risk_level": "low",
+        "queue": "general_after_sales",
+        "out_of_scope": false,
+        "message_contains": ["转人工", "交接单"]
+      }
+    },
+    {
+      "id": "SUF-01",
+      "category": "sufficient_info",
+      "description": "型号加卡纸现象，应命中 E02 并附来源",
+      "messages": ["LX-2000 卡纸了"],
+      "expected": {
+        "turn_actions": ["diagnose"],
+        "final_action": "diagnose",
+        "ask_count": 0,
+        "code": "E02",
+        "risk_level": "low",
+        "require_sources": true,
+        "message_contains": ["根据维修手册", "来源：printer_LX2000.md"],
+        "message_order": ["【安全警告】", "建议按以下顺序排查"]
+      }
+    },
+    {
+      "id": "SUF-02",
+      "category": "sufficient_info",
+      "description": "明确 E01 代码，应命中 E01 并附来源",
+      "messages": ["LX-2000 显示E01"],
+      "expected": {
+        "turn_actions": ["diagnose"],
+        "final_action": "diagnose",
+        "ask_count": 0,
+        "code": "E01",
+        "risk_level": "low",
+        "require_sources": true,
+        "message_contains": ["E01", "来源：printer_LX2000.md"]
+      }
+    },
+    {
+      "id": "SUF-03",
+      "category": "sufficient_info",
+      "description": "字迹发灰，应命中 E03",
+      "messages": ["LX-2000 打印出来字灰蒙蒙的"],
+      "expected": {
+        "turn_actions": ["diagnose"],
+        "final_action": "diagnose",
+        "ask_count": 0,
+        "code": "E03",
+        "risk_level": "low",
+        "require_sources": true,
+        "message_contains": ["E03", "来源：printer_LX2000.md"]
+      }
+    },
+    {
+      "id": "SUF-04",
+      "category": "sufficient_info",
+      "description": "明确 E04 代码，应命中 E04",
+      "messages": ["LX-2000 显示E04"],
+      "expected": {
+        "turn_actions": ["diagnose"],
+        "final_action": "diagnose",
+        "ask_count": 0,
+        "code": "E04",
+        "risk_level": "low",
+        "require_sources": true,
+        "message_contains": ["E04", "来源：printer_LX2000.md"]
+      }
+    },
+    {
+      "id": "SUF-05",
+      "category": "sufficient_info",
+      "description": "点打印没有任何动静，应命中 E05",
+      "messages": ["LX-2000 点了打印没反应"],
+      "expected": {
+        "turn_actions": ["diagnose"],
+        "final_action": "diagnose",
+        "ask_count": 0,
+        "code": "E05",
+        "risk_level": "low",
+        "require_sources": true,
+        "message_contains": ["E05", "来源：printer_LX2000.md"]
+      }
+    },
+    {
+      "id": "SUF-06",
+      "category": "sufficient_info",
+      "description": "打印有黑线，应命中 E07",
+      "messages": ["LX-2000 打出来有一道道黑线"],
+      "expected": {
+        "turn_actions": ["diagnose"],
+        "final_action": "diagnose",
+        "ask_count": 0,
+        "code": "E07",
+        "risk_level": "low",
+        "require_sources": true,
+        "message_contains": ["E07", "来源：printer_LX2000.md"]
+      }
+    },
+    {
+      "id": "SUF-07",
+      "category": "sufficient_info",
+      "description": "电脑连不上打印机，应命中 E14",
+      "messages": ["LX-2000 连不上电脑"],
+      "expected": {
+        "turn_actions": ["diagnose"],
+        "final_action": "diagnose",
+        "ask_count": 0,
+        "code": "E14",
+        "risk_level": "low",
+        "require_sources": true,
+        "message_contains": ["E14", "来源：printer_LX2000.md"]
+      }
+    },
+    {
+      "id": "SUF-08",
+      "category": "sufficient_info",
+      "description": "纸盒有纸却提示缺纸，应命中 E06",
+      "messages": ["LX-2000 纸盒里有纸但提示没纸"],
+      "expected": {
+        "turn_actions": ["diagnose"],
+        "final_action": "diagnose",
+        "ask_count": 0,
+        "code": "E06",
+        "risk_level": "low",
+        "require_sources": true,
+        "message_contains": ["E06", "来源：printer_LX2000.md"]
+      }
+    },
+    {
+      "id": "RISK-01",
+      "category": "high_risk",
+      "description": "冒烟，无需型号，立即转人工",
+      "messages": ["冒烟了"],
+      "expected": {
+        "turn_actions": ["handoff"],
+        "final_action": "handoff",
+        "reason_code": "high_risk",
+        "ask_count": 0,
+        "risk_level": "high",
+        "queue": "safety_escalation",
+        "out_of_scope": false,
+        "message_contains": ["停止使用", "转人工"],
+        "message_not_contains": ["建议按以下顺序排查"]
+      }
+    },
+    {
+      "id": "RISK-02",
+      "category": "high_risk",
+      "description": "漏电，无需型号，立即转人工",
+      "messages": ["漏电了"],
+      "expected": {
+        "turn_actions": ["handoff"],
+        "final_action": "handoff",
+        "reason_code": "high_risk",
+        "ask_count": 0,
+        "risk_level": "high",
+        "queue": "safety_escalation",
+        "out_of_scope": false,
+        "message_contains": ["停止使用", "转人工"],
+        "message_not_contains": ["建议按以下顺序排查"]
+      }
+    },
+    {
+      "id": "RISK-03",
+      "category": "high_risk",
+      "description": "烧焦味，立即转人工",
+      "messages": ["有烧焦味"],
+      "expected": {
+        "turn_actions": ["handoff"],
+        "final_action": "handoff",
+        "reason_code": "high_risk",
+        "ask_count": 0,
+        "risk_level": "high",
+        "queue": "safety_escalation",
+        "out_of_scope": false,
+        "message_contains": ["停止使用", "转人工"],
+        "message_not_contains": ["建议按以下顺序排查"]
+      }
+    },
+    {
+      "id": "RISK-04",
+      "category": "high_risk",
+      "description": "起火，立即转人工",
+      "messages": ["起火了"],
+      "expected": {
+        "turn_actions": ["handoff"],
+        "final_action": "handoff",
+        "reason_code": "high_risk",
+        "ask_count": 0,
+        "risk_level": "high",
+        "queue": "safety_escalation",
+        "out_of_scope": false,
+        "message_contains": ["停止使用", "转人工"],
+        "message_not_contains": ["建议按以下顺序排查"]
+      }
+    },
+    {
+      "id": "RISK-05",
+      "category": "high_risk",
+      "description": "异响并伴随震动，升级为高风险",
+      "messages": ["异响带震动"],
+      "expected": {
+        "turn_actions": ["handoff"],
+        "final_action": "handoff",
+        "reason_code": "high_risk",
+        "ask_count": 0,
+        "risk_level": "high",
+        "queue": "safety_escalation",
+        "out_of_scope": false,
+        "message_contains": ["停止使用", "转人工"],
+        "message_not_contains": ["建议按以下顺序排查"]
+      }
+    },
+    {
+      "id": "RISK-06",
+      "category": "high_risk",
+      "description": "机器很烫，按高风险处理",
+      "messages": ["机器很烫"],
+      "expected": {
+        "turn_actions": ["handoff"],
+        "final_action": "handoff",
+        "reason_code": "high_risk",
+        "ask_count": 0,
+        "risk_level": "high",
+        "queue": "safety_escalation",
+        "out_of_scope": false,
+        "message_contains": ["停止使用", "转人工"],
+        "message_not_contains": ["建议按以下顺序排查"]
+      }
+    },
+    {
+      "id": "NOMATCH-01",
+      "category": "unsupported_or_no_match",
+      "description": "LX-2001 不是 LX-2000，直接转人工且不追问现象",
+      "messages": ["LX-2001 卡纸了"],
+      "expected": {
+        "turn_actions": ["handoff"],
+        "final_action": "handoff",
+        "reason_code": "unsupported_model",
+        "ask_count": 0,
+        "risk_level": "low",
+        "queue": "product_scope_review",
+        "out_of_scope": true,
+        "candidate_codes": [],
+        "message_contains": ["仅支持 LX-2000", "LX-2001", "转接人工客服"]
+      }
+    },
+    {
+      "id": "NOMATCH-02",
+      "category": "unsupported_or_no_match",
+      "description": "HP 型号不在支持范围，直接转人工且不塞 LX-2000 候选",
+      "messages": ["HP 打印机卡纸了"],
+      "expected": {
+        "turn_actions": ["handoff"],
+        "final_action": "handoff",
+        "reason_code": "unsupported_model",
+        "ask_count": 0,
+        "risk_level": "low",
+        "queue": "product_scope_review",
+        "out_of_scope": true,
+        "candidate_codes": [],
+        "message_contains": ["仅支持 LX-2000", "HP", "转接人工客服"]
+      }
+    },
+    {
+      "id": "NOMATCH-03",
+      "category": "unsupported_or_no_match",
+      "description": "E99 在手册中不存在，应转人工",
+      "messages": ["LX-2000 显示E99"],
+      "expected": {
+        "turn_actions": ["handoff"],
+        "final_action": "handoff",
+        "reason_code": "code_not_found",
+        "ask_count": 0,
+        "risk_level": "low",
+        "queue": "general_after_sales",
+        "out_of_scope": false,
+        "message_contains": ["E99", "转人工"]
+      }
+    },
+    {
+      "id": "NOMATCH-04",
+      "category": "unsupported_or_no_match",
+      "description": "E01 与不出纸冲突，追问一次后仍冲突则转人工",
+      "messages": ["LX-2000 显示E01不出纸", "屏幕就是E01，纸也完全不出来"],
+      "expected": {
+        "turn_actions": ["ask", "handoff"],
+        "final_action": "handoff",
+        "reason_code": "code_symptom_conflict",
+        "ask_count": 1,
+        "follow_up_count": 1,
+        "asked_slots_count": 1,
+        "risk_level": "low",
+        "queue": "general_after_sales",
+        "out_of_scope": false,
+        "message_contains": ["错误代码与故障现象", "转人工"]
+      }
+    },
+    {
+      "id": "NOMATCH-05",
+      "category": "unsupported_or_no_match",
+      "description": "同时出现 LX-2000 和 HP，型号冲突应转人工",
+      "messages": ["LX-2000 和 HP 打印机都卡纸了"],
+      "expected": {
+        "turn_actions": ["handoff"],
+        "final_action": "handoff",
+        "reason_code": "model_conflict",
+        "ask_count": 0,
+        "risk_level": "low",
+        "queue": "product_scope_review",
+        "out_of_scope": false,
+        "candidate_codes": [],
+        "message_contains": ["型号信息", "转人工"]
+      }
+    },
+    {
+      "id": "BOUND-01",
+      "category": "unsupported_or_no_match",
+      "boundary": true,
+      "description": "低置信度门禁：症状太泛，检索置信度低于阈值，应转人工",
+      "messages": ["LX-2000 打印不清晰"],
+      "expected": {
+        "turn_actions": ["handoff"],
+        "final_action": "handoff",
+        "reason_code": "low_confidence",
+        "ask_count": 0,
+        "risk_level": "low",
+        "queue": "general_after_sales",
+        "out_of_scope": false,
+        "message_contains": ["没有足够确定", "转人工"]
+      }
+    },
+    {
+      "id": "BOUND-02",
+      "category": "sufficient_info",
+      "boundary": true,
+      "description": "多轮补全成功：两轮追问后补齐型号和现象，最终命中 E02",
+      "messages": ["机器坏了", "LX-2000", "纸出不来了"],
+      "expected": {
+        "turn_actions": ["ask", "ask", "diagnose"],
+        "final_action": "diagnose",
+        "ask_count": 2,
+        "model_ask_count": 1,
+        "fault_ask_count": 1,
+        "code": "E02",
+        "risk_level": "low",
+        "require_sources": true,
+        "message_contains": ["E02", "来源：printer_LX2000.md"]
+      }
+    },
+    {
+      "id": "BOUND-03",
+      "category": "sufficient_info",
+      "boundary": true,
+      "description": "冲突后代码更正：先追问一次，用户改成 E02 后重新检索并诊断",
+      "messages": ["LX-2000 显示E01不出纸", "看错了，其实是E02"],
+      "expected": {
+        "turn_actions": ["ask", "diagnose"],
+        "final_action": "diagnose",
+        "ask_count": 1,
+        "code": "E02",
+        "risk_level": "low",
+        "require_sources": true,
+        "message_contains": ["E02", "来源：printer_LX2000.md"]
+      }
+    },
+    {
+      "id": "BOUND-04",
+      "category": "sufficient_info",
+      "boundary": true,
+      "description": "打印中断同义表达：打印一半停住应直接归类为 E08，不再重复追问",
+      "messages": ["LX-2000 打印一半停了"],
+      "expected": {
+        "turn_actions": ["diagnose"],
+        "final_action": "diagnose",
+        "ask_count": 0,
+        "model_ask_count": 0,
+        "fault_ask_count": 0,
+        "code": "E08",
+        "risk_level": "low",
+        "require_sources": true,
+        "message_contains": ["E08", "来源：printer_LX2000.md"]
+      }
+    },
+    {
+      "id": "FB-01",
+      "category": "feedback_loop",
+      "boundary": true,
+      "description": "诊断后否定具体提示：排除 E08，按最新现象重新命中 E19",
+      "messages": ["LX-2000 打印一半停了", "没提示纸张错"],
+      "expected": {
+        "turn_actions": ["diagnose", "diagnose"],
+        "final_action": "diagnose",
+        "ask_count": 0,
+        "model_ask_count": 0,
+        "fault_ask_count": 0,
+        "feedback_ask_count": 0,
+        "diagnosis_count": 2,
+        "excluded_codes": ["E08"],
+        "code": "E19",
+        "risk_level": "low",
+        "require_sources": true,
+        "message_contains": ["排除上一轮结论（E08）", "E19", "来源：printer_LX2000.md"]
+      }
+    },
+    {
+      "id": "FB-02",
+      "category": "feedback_loop",
+      "boundary": true,
+      "description": "诊断后仅说还是不行：排除 E08 后重新匹配 E19",
+      "messages": ["LX-2000 打印一半停了", "还是不行"],
+      "expected": {
+        "turn_actions": ["diagnose", "diagnose"],
+        "final_action": "diagnose",
+        "ask_count": 0,
+        "feedback_ask_count": 0,
+        "diagnosis_count": 2,
+        "excluded_codes": ["E08"],
+        "code": "E19",
+        "risk_level": "low",
+        "require_sources": true,
+        "message_contains": ["排除上一轮结论（E08）", "E19"]
+      }
+    },
+    {
+      "id": "FB-03",
+      "category": "feedback_loop",
+      "boundary": true,
+      "description": "诊断后否定卡纸并给出新现象：排除 E02，改判异响 E10",
+      "messages": ["LX-2000 卡纸了", "没卡纸，就是一直响"],
+      "expected": {
+        "turn_actions": ["diagnose", "diagnose"],
+        "final_action": "diagnose",
+        "ask_count": 0,
+        "feedback_ask_count": 0,
+        "diagnosis_count": 2,
+        "excluded_codes": ["E02"],
+        "code": "E10",
+        "risk_level": "low",
+        "require_sources": true,
+        "message_contains": ["排除上一轮结论（E02）", "E10"]
+      }
+    },
+    {
+      "id": "FB-04",
+      "category": "feedback_loop",
+      "description": "诊断后明确说解决了：正常结束会话并返回 resolved",
+      "messages": ["LX-2000 卡纸了", "解决了"],
+      "expected": {
+        "turn_actions": ["diagnose", "resolved"],
+        "final_action": "resolved",
+        "ask_count": 0,
+        "feedback_ask_count": 0,
+        "diagnosis_count": 1,
+        "excluded_codes": [],
+        "risk_level": "low",
+        "message_contains": ["已解决"]
+      }
+    },
+    {
+      "id": "FB-05",
+      "category": "feedback_loop",
+      "boundary": true,
+      "description": "反馈含糊时独立追问两次后转人工，不回到型号追问",
+      "messages": ["LX-2000 卡纸了", "有点道理", "我也不知道", "随便吧"],
+      "expected": {
+        "turn_actions": ["diagnose", "ask", "ask", "handoff"],
+        "final_action": "handoff",
+        "reason_code": "feedback_unresolved",
+        "ask_count": 2,
+        "model_ask_count": 0,
+        "fault_ask_count": 0,
+        "feedback_ask_count": 2,
+        "follow_up_count": 2,
+        "asked_slots_count": 2,
+        "diagnosis_count": 1,
+        "excluded_codes": [],
+        "risk_level": "low",
+        "queue": "general_after_sales",
+        "out_of_scope": false,
+        "message_contains": ["转人工", "交接单"]
+      }
+    }
+  ]
+}

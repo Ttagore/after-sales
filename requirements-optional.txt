@@ -1,0 +1,3 @@
+# Optional: enables DeepSeek-based risk-signal extraction through the
+# OpenAI-compatible endpoint. The assistant runs fully offline without it.
+openai>=1.0,<3

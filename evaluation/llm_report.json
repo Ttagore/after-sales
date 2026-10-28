@@ -1,0 +1,4615 @@
+{
+  "generated_at": "2026-10-28T09:52:14+00:00",
+  "mode": "llm_vs_rule",
+  "model": "deepseek-chat",
+  "cases_file": "D:\\rag\\after sales\\evaluation\\test_cases.json",
+  "manual": "D:\\rag\\after sales\\printer_LX2000.md",
+  "total": 34,
+  "summary": {
+    "rule_passed": 34,
+    "rule_failed": 0,
+    "llm_passed": 34,
+    "llm_failed": 0,
+    "behavior_changed": 0,
+    "llm_call_errors": 0
+  },
+  "cases": [
+    {
+      "id": "INS-01",
+      "category": "insufficient_info",
+      "description": "只有笼统描述，没有型号，应追问型号",
+      "messages": [
+        "机器坏了"
+      ],
+      "expected": {
+        "turn_actions": [
+          "ask"
+        ],
+        "final_action": "ask",
+        "ask_count": 1,
+        "message_contains": [
+          "型号",
+          "LX-2000"
+        ]
+      },
+      "rule": {
+        "id": "INS-01",
+        "category": "insufficient_info",
+        "description": "只有笼统描述，没有型号，应追问型号",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "ask"
+          ],
+          "final_action": "ask",
+          "ask_count": 1,
+          "model_ask_count": 1,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": null,
+          "queue": null,
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "请先确认设备型号：可以查看机身铭牌或包装标签，上面是否有“LX-2000”字样？",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:insufficient",
+            "C:ask(model#1)"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "ask"
+          ],
+          "final_action": "ask",
+          "ask_count": 1,
+          "model_ask_count": 1,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": null,
+          "queue": null,
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "请先确认设备型号：可以查看机身铭牌或包装标签，上面是否有“LX-2000”字样？",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:insufficient",
+            "C:ask(model#1)"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [],
+        "accepted_symptom_categories": [
+          "vague"
+        ],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "B:insufficient",
+          "C:ask(model#1)"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "INS-02",
+      "category": "insufficient_info",
+      "description": "补充型号后仍无故障现象，应追问现象",
+      "messages": [
+        "机器坏了",
+        "LX-2000"
+      ],
+      "expected": {
+        "turn_actions": [
+          "ask",
+          "ask"
+        ],
+        "final_action": "ask",
+        "ask_count": 2,
+        "message_contains": [
+          "故障现象"
+        ]
+      },
+      "rule": {
+        "id": "INS-02",
+        "category": "insufficient_info",
+        "description": "补充型号后仍无故障现象，应追问现象",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "ask",
+            "ask"
+          ],
+          "final_action": "ask",
+          "ask_count": 2,
+          "model_ask_count": 1,
+          "fault_ask_count": 1,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": null,
+          "queue": null,
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "请具体描述故障现象：是开不了机、卡纸/不出纸、打印到一半停住、打印字迹异常、异响、连不上电脑，还是屏幕显示了错误代码？",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:insufficient",
+            "C:ask(fault#1)"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "ask",
+            "ask"
+          ],
+          "final_action": "ask",
+          "ask_count": 2,
+          "model_ask_count": 1,
+          "fault_ask_count": 1,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": null,
+          "queue": null,
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "请具体描述故障现象：是开不了机、卡纸/不出纸、打印到一半停住、打印字迹异常、异响、连不上电脑，还是屏幕显示了错误代码？",
+          "stage_trace": [
+            "A:input_accumulated",
+            "D0:symptom_llm=none",
+            "D0:note=LLM 对故障现象提取表示不确定",
+            "B:insufficient",
+            "C:ask(fault#1)"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "symptom",
+            "input": "机器坏了 lx-2000",
+            "raw": {
+              "symptoms": [],
+              "uncertain": true
+            },
+            "notes": [
+              "LLM 对故障现象提取表示不确定"
+            ],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [
+          "vague"
+        ],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "D0:symptom_llm=none",
+          "D0:note=LLM 对故障现象提取表示不确定",
+          "B:insufficient",
+          "C:ask(fault#1)"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "INS-03",
+      "category": "insufficient_info",
+      "description": "只给型号，没有说明哪里坏了，应追问现象",
+      "messages": [
+        "LX-2000"
+      ],
+      "expected": {
+        "turn_actions": [
+          "ask"
+        ],
+        "final_action": "ask",
+        "ask_count": 1,
+        "message_contains": [
+          "故障现象"
+        ]
+      },
+      "rule": {
+        "id": "INS-03",
+        "category": "insufficient_info",
+        "description": "只给型号，没有说明哪里坏了，应追问现象",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "ask"
+          ],
+          "final_action": "ask",
+          "ask_count": 1,
+          "model_ask_count": 0,
+          "fault_ask_count": 1,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": null,
+          "queue": null,
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "请具体描述故障现象：是开不了机、卡纸/不出纸、打印到一半停住、打印字迹异常、异响、连不上电脑，还是屏幕显示了错误代码？",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:insufficient",
+            "C:ask(fault#1)"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "ask"
+          ],
+          "final_action": "ask",
+          "ask_count": 1,
+          "model_ask_count": 0,
+          "fault_ask_count": 1,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": null,
+          "queue": null,
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "请具体描述故障现象：是开不了机、卡纸/不出纸、打印到一半停住、打印字迹异常、异响、连不上电脑，还是屏幕显示了错误代码？",
+          "stage_trace": [
+            "A:input_accumulated",
+            "D0:symptom_llm=none",
+            "D0:note=LLM 对故障现象提取表示不确定",
+            "B:insufficient",
+            "C:ask(fault#1)"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "symptom",
+            "input": "lx-2000",
+            "raw": {
+              "symptoms": [],
+              "uncertain": true
+            },
+            "notes": [
+              "LLM 对故障现象提取表示不确定"
+            ],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "D0:symptom_llm=none",
+          "D0:note=LLM 对故障现象提取表示不确定",
+          "B:insufficient",
+          "C:ask(fault#1)"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "INS-04",
+      "category": "insufficient_info",
+      "description": "型号 1 次、现象 2 次追问后独立预算耗尽，转人工",
+      "messages": [
+        "机器坏了",
+        "LX-2000",
+        "就是坏了",
+        "不知道"
+      ],
+      "expected": {
+        "turn_actions": [
+          "ask",
+          "ask",
+          "ask",
+          "handoff"
+        ],
+        "final_action": "handoff",
+        "reason_code": "insufficient_info",
+        "ask_count": 3,
+        "model_ask_count": 1,
+        "fault_ask_count": 2,
+        "follow_up_count": 3,
+        "asked_slots_count": 3,
+        "risk_level": "low",
+        "queue": "general_after_sales",
+        "out_of_scope": false,
+        "message_contains": [
+          "转人工",
+          "交接单"
+        ]
+      },
+      "rule": {
+        "id": "INS-04",
+        "category": "insufficient_info",
+        "description": "型号 1 次、现象 2 次追问后独立预算耗尽，转人工",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "ask",
+            "ask",
+            "ask",
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 3,
+          "model_ask_count": 1,
+          "fault_ask_count": 2,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "insufficient_info",
+          "follow_up_count": 3,
+          "asked_slots_count": 3,
+          "risk_level": "low",
+          "queue": "general_after_sales",
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [
+            null
+          ],
+          "ticket_present": true,
+          "message": "现有信息仍不足以安全定位故障，继续猜测可能带来误操作风险。已停止追问并转人工，交接单中保留了目前已提取的信息。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:insufficient",
+            "C:fault_limit_reached"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "ask",
+            "ask",
+            "ask",
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 3,
+          "model_ask_count": 1,
+          "fault_ask_count": 2,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "insufficient_info",
+          "follow_up_count": 3,
+          "asked_slots_count": 3,
+          "risk_level": "low",
+          "queue": "general_after_sales",
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [
+            null
+          ],
+          "ticket_present": true,
+          "message": "现有信息仍不足以安全定位故障，继续猜测可能带来误操作风险。已停止追问并转人工，交接单中保留了目前已提取的信息。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "D0:symptom_llm=none",
+            "D0:note=LLM 对故障现象提取表示不确定",
+            "B:insufficient",
+            "C:fault_limit_reached"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "symptom",
+            "input": "机器坏了 lx-2000",
+            "raw": {
+              "symptoms": [],
+              "uncertain": true
+            },
+            "notes": [
+              "LLM 对故障现象提取表示不确定"
+            ],
+            "ok": true
+          },
+          {
+            "kind": "symptom",
+            "input": "机器坏了 lx-2000 就是坏了",
+            "raw": {
+              "symptoms": [],
+              "uncertain": true
+            },
+            "notes": [
+              "LLM 对故障现象提取表示不确定"
+            ],
+            "ok": true
+          },
+          {
+            "kind": "symptom",
+            "input": "机器坏了 lx-2000 就是坏了 不知道",
+            "raw": {
+              "symptoms": [],
+              "uncertain": true
+            },
+            "notes": [
+              "LLM 对故障现象提取表示不确定"
+            ],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [
+          "vague"
+        ],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "D0:symptom_llm=none",
+          "D0:note=LLM 对故障现象提取表示不确定",
+          "B:insufficient",
+          "C:fault_limit_reached"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "INS-05",
+      "category": "insufficient_info",
+      "description": "型号已确认但现象两次追问仍不明，转人工",
+      "messages": [
+        "LX-2000",
+        "就是不好用",
+        "不知道"
+      ],
+      "expected": {
+        "turn_actions": [
+          "ask",
+          "ask",
+          "handoff"
+        ],
+        "final_action": "handoff",
+        "reason_code": "insufficient_info",
+        "ask_count": 2,
+        "model_ask_count": 0,
+        "fault_ask_count": 2,
+        "follow_up_count": 2,
+        "asked_slots_count": 2,
+        "risk_level": "low",
+        "queue": "general_after_sales",
+        "out_of_scope": false,
+        "message_contains": [
+          "转人工",
+          "交接单"
+        ]
+      },
+      "rule": {
+        "id": "INS-05",
+        "category": "insufficient_info",
+        "description": "型号已确认但现象两次追问仍不明，转人工",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "ask",
+            "ask",
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 2,
+          "model_ask_count": 0,
+          "fault_ask_count": 2,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "insufficient_info",
+          "follow_up_count": 2,
+          "asked_slots_count": 2,
+          "risk_level": "low",
+          "queue": "general_after_sales",
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [
+            null,
+            null
+          ],
+          "ticket_present": true,
+          "message": "现有信息仍不足以安全定位故障，继续猜测可能带来误操作风险。已停止追问并转人工，交接单中保留了目前已提取的信息。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:insufficient",
+            "C:fault_limit_reached"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "ask",
+            "ask",
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 2,
+          "model_ask_count": 0,
+          "fault_ask_count": 2,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "insufficient_info",
+          "follow_up_count": 2,
+          "asked_slots_count": 2,
+          "risk_level": "low",
+          "queue": "general_after_sales",
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [
+            null,
+            null
+          ],
+          "ticket_present": true,
+          "message": "现有信息仍不足以安全定位故障，继续猜测可能带来误操作风险。已停止追问并转人工，交接单中保留了目前已提取的信息。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "D0:symptom_llm=none",
+            "D0:note=LLM 对故障现象提取表示不确定",
+            "B:insufficient",
+            "C:fault_limit_reached"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "symptom",
+            "input": "lx-2000",
+            "raw": {
+              "symptoms": [],
+              "uncertain": true
+            },
+            "notes": [
+              "LLM 对故障现象提取表示不确定"
+            ],
+            "ok": true
+          },
+          {
+            "kind": "symptom",
+            "input": "lx-2000 就是不好用",
+            "raw": {
+              "symptoms": [],
+              "uncertain": true
+            },
+            "notes": [
+              "LLM 对故障现象提取表示不确定"
+            ],
+            "ok": true
+          },
+          {
+            "kind": "symptom",
+            "input": "lx-2000 就是不好用 不知道",
+            "raw": {
+              "symptoms": [],
+              "uncertain": true
+            },
+            "notes": [
+              "LLM 对故障现象提取表示不确定"
+            ],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "D0:symptom_llm=none",
+          "D0:note=LLM 对故障现象提取表示不确定",
+          "B:insufficient",
+          "C:fault_limit_reached"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "INS-06",
+      "category": "insufficient_info",
+      "description": "型号和现象都无法确认，独立预算耗尽后转人工",
+      "messages": [
+        "我不知道型号",
+        "也不清楚哪坏了",
+        "反正不能用",
+        "随便吧"
+      ],
+      "expected": {
+        "turn_actions": [
+          "ask",
+          "ask",
+          "ask",
+          "handoff"
+        ],
+        "final_action": "handoff",
+        "reason_code": "insufficient_info",
+        "ask_count": 3,
+        "model_ask_count": 2,
+        "fault_ask_count": 1,
+        "follow_up_count": 3,
+        "asked_slots_count": 3,
+        "risk_level": "low",
+        "queue": "general_after_sales",
+        "out_of_scope": false,
+        "message_contains": [
+          "转人工",
+          "交接单"
+        ]
+      },
+      "rule": {
+        "id": "INS-06",
+        "category": "insufficient_info",
+        "description": "型号和现象都无法确认，独立预算耗尽后转人工",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "ask",
+            "ask",
+            "ask",
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 3,
+          "model_ask_count": 2,
+          "fault_ask_count": 1,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "insufficient_info",
+          "follow_up_count": 3,
+          "asked_slots_count": 3,
+          "risk_level": "low",
+          "queue": "general_after_sales",
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [
+            null,
+            null
+          ],
+          "ticket_present": true,
+          "message": "现有信息仍不足以安全定位故障，继续猜测可能带来误操作风险。已停止追问并转人工，交接单中保留了目前已提取的信息。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "C:model_exhausted_without_fault_info"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "ask",
+            "ask",
+            "ask",
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 3,
+          "model_ask_count": 2,
+          "fault_ask_count": 1,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "insufficient_info",
+          "follow_up_count": 3,
+          "asked_slots_count": 3,
+          "risk_level": "low",
+          "queue": "general_after_sales",
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [
+            null,
+            null
+          ],
+          "ticket_present": true,
+          "message": "现有信息仍不足以安全定位故障，继续猜测可能带来误操作风险。已停止追问并转人工，交接单中保留了目前已提取的信息。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "C:model_exhausted_without_fault_info"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [],
+        "accepted_symptom_categories": [
+          "vague"
+        ],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "C:model_exhausted_without_fault_info"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "SUF-01",
+      "category": "sufficient_info",
+      "description": "型号加卡纸现象，应命中 E02 并附来源",
+      "messages": [
+        "LX-2000 卡纸了"
+      ],
+      "expected": {
+        "turn_actions": [
+          "diagnose"
+        ],
+        "final_action": "diagnose",
+        "ask_count": 0,
+        "code": "E02",
+        "risk_level": "low",
+        "require_sources": true,
+        "message_contains": [
+          "根据维修手册",
+          "来源：printer_LX2000.md"
+        ],
+        "message_order": [
+          "【安全警告】",
+          "建议按以下顺序排查"
+        ]
+      },
+      "rule": {
+        "id": "SUF-01",
+        "category": "sufficient_info",
+        "description": "型号加卡纸现象，应命中 E02 并附来源",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "diagnose"
+          ],
+          "final_action": "diagnose",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 1,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": "E02",
+          "source_count": 1,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "根据维修手册，您的情况匹配：纸卡在里面了，怎么拉都拉不出来（E02）。\n适用性：型号 LX-2000 匹配；故障现象匹配；置信度 90%。\n\n【安全警告】中高风险。打印后定影组件可能仍然很烫，须等待机器充分冷却。禁止使用刀具、金属钩或尖锐物品伸入机器内部。\n手册风险标注：高。\n\n建议按以下顺序排查：\n1. 关闭打印机并拔掉电源线。\n2. 打开用户手册允许开启的纸盒和检修盖。\n3. 沿纸张运行方向缓慢取出卡纸，避免用力拉扯。\n4. 检查是否有残留纸屑，并重新装入平整纸张。\n5. 重新通电，打印测试页确认是否恢复。\n\n来源：printer_LX2000.md · 第20-35行 · E02 · 纸卡在里面了，怎么拉都拉不出来\n以上内容仅依据上述手册章节整理；如步骤提示停止使用或联系专业人员，请照做。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:sufficient",
+            "D1:llm_signals=fallback",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=-)",
+            "G:accepted(E02,confidence=0.90)",
+            "H:answer_grounded",
+            "H:follow_up_open"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "diagnose"
+          ],
+          "final_action": "diagnose",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 1,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": "E02",
+          "source_count": 1,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "根据维修手册，您的情况匹配：纸卡在里面了，怎么拉都拉不出来（E02）。\n适用性：型号 LX-2000 匹配；故障现象匹配；置信度 90%。\n\n【安全警告】中高风险。打印后定影组件可能仍然很烫，须等待机器充分冷却。禁止使用刀具、金属钩或尖锐物品伸入机器内部。\n手册风险标注：高。\n\n建议按以下顺序排查：\n1. 关闭打印机并拔掉电源线。\n2. 打开用户手册允许开启的纸盒和检修盖。\n3. 沿纸张运行方向缓慢取出卡纸，避免用力拉扯。\n4. 检查是否有残留纸屑，并重新装入平整纸张。\n5. 重新通电，打印测试页确认是否恢复。\n\n来源：printer_LX2000.md · 第20-35行 · E02 · 纸卡在里面了，怎么拉都拉不出来\n以上内容仅依据上述手册章节整理；如步骤提示停止使用或联系专业人员，请照做。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:sufficient",
+            "D1:llm_signals=used",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=-)",
+            "G:accepted(E02,confidence=0.90)",
+            "H:answer_grounded",
+            "H:follow_up_open"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "risk",
+            "input": "lx-2000 卡纸了",
+            "raw": {
+              "signals": [],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [
+          "paper_jam"
+        ],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "B:sufficient",
+          "D1:llm_signals=used",
+          "D1b:keyword_signals=0",
+          "D2:risk=low",
+          "F:retrieve(model=LX-2000,codes=-)",
+          "G:accepted(E02,confidence=0.90)",
+          "H:answer_grounded",
+          "H:follow_up_open"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "SUF-02",
+      "category": "sufficient_info",
+      "description": "明确 E01 代码，应命中 E01 并附来源",
+      "messages": [
+        "LX-2000 显示E01"
+      ],
+      "expected": {
+        "turn_actions": [
+          "diagnose"
+        ],
+        "final_action": "diagnose",
+        "ask_count": 0,
+        "code": "E01",
+        "risk_level": "low",
+        "require_sources": true,
+        "message_contains": [
+          "E01",
+          "来源：printer_LX2000.md"
+        ]
+      },
+      "rule": {
+        "id": "SUF-02",
+        "category": "sufficient_info",
+        "description": "明确 E01 代码，应命中 E01 并附来源",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "diagnose"
+          ],
+          "final_action": "diagnose",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 1,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": "E01",
+          "source_count": 1,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "根据维修手册，您的情况匹配：打印机突然不亮了，按开关也没反应（E01）。\n适用性：型号 LX-2000 匹配；故障现象匹配；置信度 82%。\n\n【安全警告】高风险。检查外部电源前保持双手干燥。禁止自行拆开电源模块或接触内部带电部件。发现电源线破损时立即停止使用。\n手册风险标注：高。\n\n建议按以下顺序排查：\n1. 检查电源线两端是否插牢。\n2. 使用其他已确认正常的插座测试。\n3. 观察电源指示灯是否有任何反应。\n4. 如果仍无法启动，停止使用并联系专业维修人员检查电源模块。\n\n来源：printer_LX2000.md · 第5-19行 · E01 · 打印机突然不亮了，按开关也没反应\n以上内容仅依据上述手册章节整理；如步骤提示停止使用或联系专业人员，请照做。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:sufficient",
+            "D1:llm_signals=fallback",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=E01)",
+            "G:accepted(E01,confidence=0.82)",
+            "H:answer_grounded",
+            "H:follow_up_open"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "diagnose"
+          ],
+          "final_action": "diagnose",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 1,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": "E01",
+          "source_count": 1,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "根据维修手册，您的情况匹配：打印机突然不亮了，按开关也没反应（E01）。\n适用性：型号 LX-2000 匹配；故障现象匹配；置信度 82%。\n\n【安全警告】高风险。检查外部电源前保持双手干燥。禁止自行拆开电源模块或接触内部带电部件。发现电源线破损时立即停止使用。\n手册风险标注：高。\n\n建议按以下顺序排查：\n1. 检查电源线两端是否插牢。\n2. 使用其他已确认正常的插座测试。\n3. 观察电源指示灯是否有任何反应。\n4. 如果仍无法启动，停止使用并联系专业维修人员检查电源模块。\n\n来源：printer_LX2000.md · 第5-19行 · E01 · 打印机突然不亮了，按开关也没反应\n以上内容仅依据上述手册章节整理；如步骤提示停止使用或联系专业人员，请照做。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:sufficient",
+            "D1:llm_signals=used",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=E01)",
+            "G:accepted(E01,confidence=0.82)",
+            "H:answer_grounded",
+            "H:follow_up_open"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "risk",
+            "input": "lx-2000 显示e01",
+            "raw": {
+              "signals": [],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "B:sufficient",
+          "D1:llm_signals=used",
+          "D1b:keyword_signals=0",
+          "D2:risk=low",
+          "F:retrieve(model=LX-2000,codes=E01)",
+          "G:accepted(E01,confidence=0.82)",
+          "H:answer_grounded",
+          "H:follow_up_open"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "SUF-03",
+      "category": "sufficient_info",
+      "description": "字迹发灰，应命中 E03",
+      "messages": [
+        "LX-2000 打印出来字灰蒙蒙的"
+      ],
+      "expected": {
+        "turn_actions": [
+          "diagnose"
+        ],
+        "final_action": "diagnose",
+        "ask_count": 0,
+        "code": "E03",
+        "risk_level": "low",
+        "require_sources": true,
+        "message_contains": [
+          "E03",
+          "来源：printer_LX2000.md"
+        ]
+      },
+      "rule": {
+        "id": "SUF-03",
+        "category": "sufficient_info",
+        "description": "字迹发灰，应命中 E03",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "diagnose"
+          ],
+          "final_action": "diagnose",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 1,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": "E03",
+          "source_count": 1,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "根据维修手册，您的情况匹配：打出来的字灰蒙蒙的，像快没墨了一样（E03）。\n适用性：型号 LX-2000 匹配；故障现象匹配；置信度 93%。\n建议按以下顺序排查：\n1. 查看打印机面板是否显示墨粉不足提示。\n2. 按用户手册说明取出墨粉盒，检查外观及安装状态。\n3. 如产品说明允许，可轻轻水平晃动墨粉盒，使墨粉分布均匀。\n4. 重新安装墨粉盒并打印测试页。\n5. 若仍然模糊，使用兼容的合格耗材进行验证，必要时联系维修人员。\n\n安全提示：中风险。避免吸入墨粉或让墨粉接触眼睛。禁止用普通家用吸尘器清理散落墨粉。\n手册风险标注：中。\n\n来源：printer_LX2000.md · 第36-51行 · E03 · 打出来的字灰蒙蒙的，像快没墨了一样\n以上内容仅依据上述手册章节整理；如步骤提示停止使用或联系专业人员，请照做。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:sufficient",
+            "D1:llm_signals=fallback",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=-)",
+            "G:accepted(E03,confidence=0.93)",
+            "H:answer_grounded",
+            "H:follow_up_open"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "diagnose"
+          ],
+          "final_action": "diagnose",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 1,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": "E03",
+          "source_count": 1,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "根据维修手册，您的情况匹配：打出来的字灰蒙蒙的，像快没墨了一样（E03）。\n适用性：型号 LX-2000 匹配；故障现象匹配；置信度 93%。\n建议按以下顺序排查：\n1. 查看打印机面板是否显示墨粉不足提示。\n2. 按用户手册说明取出墨粉盒，检查外观及安装状态。\n3. 如产品说明允许，可轻轻水平晃动墨粉盒，使墨粉分布均匀。\n4. 重新安装墨粉盒并打印测试页。\n5. 若仍然模糊，使用兼容的合格耗材进行验证，必要时联系维修人员。\n\n安全提示：中风险。避免吸入墨粉或让墨粉接触眼睛。禁止用普通家用吸尘器清理散落墨粉。\n手册风险标注：中。\n\n来源：printer_LX2000.md · 第36-51行 · E03 · 打出来的字灰蒙蒙的，像快没墨了一样\n以上内容仅依据上述手册章节整理；如步骤提示停止使用或联系专业人员，请照做。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:sufficient",
+            "D1:llm_signals=used",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=-)",
+            "G:accepted(E03,confidence=0.93)",
+            "H:answer_grounded",
+            "H:follow_up_open"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "risk",
+            "input": "lx-2000 打印出来字灰蒙蒙的",
+            "raw": {
+              "signals": [],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [
+          "print_quality"
+        ],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "B:sufficient",
+          "D1:llm_signals=used",
+          "D1b:keyword_signals=0",
+          "D2:risk=low",
+          "F:retrieve(model=LX-2000,codes=-)",
+          "G:accepted(E03,confidence=0.93)",
+          "H:answer_grounded",
+          "H:follow_up_open"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "SUF-04",
+      "category": "sufficient_info",
+      "description": "明确 E04 代码，应命中 E04",
+      "messages": [
+        "LX-2000 显示E04"
+      ],
+      "expected": {
+        "turn_actions": [
+          "diagnose"
+        ],
+        "final_action": "diagnose",
+        "ask_count": 0,
+        "code": "E04",
+        "risk_level": "low",
+        "require_sources": true,
+        "message_contains": [
+          "E04",
+          "来源：printer_LX2000.md"
+        ]
+      },
+      "rule": {
+        "id": "SUF-04",
+        "category": "sufficient_info",
+        "description": "明确 E04 代码，应命中 E04",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "diagnose"
+          ],
+          "final_action": "diagnose",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 1,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": "E04",
+          "source_count": 1,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "根据维修手册，您的情况匹配：屏幕上冒出个 E04，按什么都没用（E04）。\n适用性：型号 LX-2000 匹配；故障现象匹配；置信度 98%。\n建议按以下顺序排查：\n1. 记录屏幕显示的完整代码及提示文字。\n2. 检查纸盒、前盖和其他用户可操作盖板是否关好。\n3. 取消待打印任务，关闭打印机并等待一分钟。\n4. 重新开机，观察代码是否再次出现。\n5. 如果错误持续存在，提供代码、出现时间和操作过程，联系维修人员。\n\n安全提示：中风险。不得为了清除错误而强行打开机器内部组件或短接检测开关。\n手册风险标注：中。\n\n来源：printer_LX2000.md · 第52-67行 · E04 · 屏幕上冒出个 E04，按什么都没用\n以上内容仅依据上述手册章节整理；如步骤提示停止使用或联系专业人员，请照做。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:sufficient",
+            "D1:llm_signals=fallback",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=E04)",
+            "G:accepted(E04,confidence=0.98)",
+            "H:answer_grounded",
+            "H:follow_up_open"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "diagnose"
+          ],
+          "final_action": "diagnose",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 1,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": "E04",
+          "source_count": 1,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "根据维修手册，您的情况匹配：屏幕上冒出个 E04，按什么都没用（E04）。\n适用性：型号 LX-2000 匹配；故障现象匹配；置信度 98%。\n建议按以下顺序排查：\n1. 记录屏幕显示的完整代码及提示文字。\n2. 检查纸盒、前盖和其他用户可操作盖板是否关好。\n3. 取消待打印任务，关闭打印机并等待一分钟。\n4. 重新开机，观察代码是否再次出现。\n5. 如果错误持续存在，提供代码、出现时间和操作过程，联系维修人员。\n\n安全提示：中风险。不得为了清除错误而强行打开机器内部组件或短接检测开关。\n手册风险标注：中。\n\n来源：printer_LX2000.md · 第52-67行 · E04 · 屏幕上冒出个 E04，按什么都没用\n以上内容仅依据上述手册章节整理；如步骤提示停止使用或联系专业人员，请照做。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:sufficient",
+            "D1:llm_signals=used",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=E04)",
+            "G:accepted(E04,confidence=0.98)",
+            "H:answer_grounded",
+            "H:follow_up_open"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "risk",
+            "input": "lx-2000 显示e04",
+            "raw": {
+              "signals": [],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "B:sufficient",
+          "D1:llm_signals=used",
+          "D1b:keyword_signals=0",
+          "D2:risk=low",
+          "F:retrieve(model=LX-2000,codes=E04)",
+          "G:accepted(E04,confidence=0.98)",
+          "H:answer_grounded",
+          "H:follow_up_open"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "SUF-05",
+      "category": "sufficient_info",
+      "description": "点打印没有任何动静，应命中 E05",
+      "messages": [
+        "LX-2000 点了打印没反应"
+      ],
+      "expected": {
+        "turn_actions": [
+          "diagnose"
+        ],
+        "final_action": "diagnose",
+        "ask_count": 0,
+        "code": "E05",
+        "risk_level": "low",
+        "require_sources": true,
+        "message_contains": [
+          "E05",
+          "来源：printer_LX2000.md"
+        ]
+      },
+      "rule": {
+        "id": "SUF-05",
+        "category": "sufficient_info",
+        "description": "点打印没有任何动静，应命中 E05",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "diagnose"
+          ],
+          "final_action": "diagnose",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 1,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": "E05",
+          "source_count": 1,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "根据维修手册，您的情况匹配：电脑上点了打印，可机器一点动静都没有（E05）。\n适用性：型号 LX-2000 匹配；故障现象匹配；置信度 92%。\n建议按以下顺序排查：\n1. 检查打印机是否已开机并处于就绪状态。\n2. 检查 USB 连接线两端是否插紧。\n3. 在电脑的打印机列表中确认选中 LX-2000。\n4. 清除卡住的打印任务，再发送一页测试文档。\n5. 若仍无法打印，尝试更换 USB 线或电脑端接口。\n\n安全提示：低风险。插拔数据线时不要拉扯线缆，也不要在接口明显破损时继续使用。\n手册风险标注：低。\n\n来源：printer_LX2000.md · 第68-83行 · E05 · 电脑上点了打印，可机器一点动静都没有\n以上内容仅依据上述手册章节整理；如步骤提示停止使用或联系专业人员，请照做。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:sufficient",
+            "D1:llm_signals=fallback",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=-)",
+            "G:accepted(E05,confidence=0.92)",
+            "H:answer_grounded",
+            "H:follow_up_open"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "diagnose"
+          ],
+          "final_action": "diagnose",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 1,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": "E05",
+          "source_count": 1,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "根据维修手册，您的情况匹配：电脑上点了打印，可机器一点动静都没有（E05）。\n适用性：型号 LX-2000 匹配；故障现象匹配；置信度 92%。\n建议按以下顺序排查：\n1. 检查打印机是否已开机并处于就绪状态。\n2. 检查 USB 连接线两端是否插紧。\n3. 在电脑的打印机列表中确认选中 LX-2000。\n4. 清除卡住的打印任务，再发送一页测试文档。\n5. 若仍无法打印，尝试更换 USB 线或电脑端接口。\n\n安全提示：低风险。插拔数据线时不要拉扯线缆，也不要在接口明显破损时继续使用。\n手册风险标注：低。\n\n来源：printer_LX2000.md · 第68-83行 · E05 · 电脑上点了打印，可机器一点动静都没有\n以上内容仅依据上述手册章节整理；如步骤提示停止使用或联系专业人员，请照做。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:sufficient",
+            "D1:llm_signals=used",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=-)",
+            "G:accepted(E05,confidence=0.92)",
+            "H:answer_grounded",
+            "H:follow_up_open"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "risk",
+            "input": "lx-2000 点了打印没反应",
+            "raw": {
+              "signals": [],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [
+          "no_print_response",
+          "vague"
+        ],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "B:sufficient",
+          "D1:llm_signals=used",
+          "D1b:keyword_signals=0",
+          "D2:risk=low",
+          "F:retrieve(model=LX-2000,codes=-)",
+          "G:accepted(E05,confidence=0.92)",
+          "H:answer_grounded",
+          "H:follow_up_open"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "SUF-06",
+      "category": "sufficient_info",
+      "description": "打印有黑线，应命中 E07",
+      "messages": [
+        "LX-2000 打出来有一道道黑线"
+      ],
+      "expected": {
+        "turn_actions": [
+          "diagnose"
+        ],
+        "final_action": "diagnose",
+        "ask_count": 0,
+        "code": "E07",
+        "risk_level": "low",
+        "require_sources": true,
+        "message_contains": [
+          "E07",
+          "来源：printer_LX2000.md"
+        ]
+      },
+      "rule": {
+        "id": "SUF-06",
+        "category": "sufficient_info",
+        "description": "打印有黑线，应命中 E07",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "diagnose"
+          ],
+          "final_action": "diagnose",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 1,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": "E07",
+          "source_count": 1,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "根据维修手册，您的情况匹配：打出来的纸上有一道道黑线，看着特别脏（E07）。\n适用性：型号 LX-2000 匹配；故障现象匹配；置信度 94%。\n建议按以下顺序排查：\n1. 打印一张新的测试页，观察黑线是否出现在固定位置。\n2. 检查墨粉盒是否安装正确，外壳有无明显损伤。\n3. 按用户手册允许的方式清理用户可接触区域。\n4. 更换已确认存在问题的兼容耗材进行测试。\n5. 若黑线仍然存在，交由专业人员检查成像组件。\n\n安全提示：中风险。禁止触摸成像鼓表面或使用液体直接清洗内部组件。拆卸内部成像机构应由专业维修人员进行。\n手册风险标注：中。\n\n来源：printer_LX2000.md · 第100-115行 · E07 · 打出来的纸上有一道道黑线，看着特别脏\n以上内容仅依据上述手册章节整理；如步骤提示停止使用或联系专业人员，请照做。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:sufficient",
+            "D1:llm_signals=fallback",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=-)",
+            "G:accepted(E07,confidence=0.94)",
+            "H:answer_grounded",
+            "H:follow_up_open"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "diagnose"
+          ],
+          "final_action": "diagnose",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 1,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": "E07",
+          "source_count": 1,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "根据维修手册，您的情况匹配：打出来的纸上有一道道黑线，看着特别脏（E07）。\n适用性：型号 LX-2000 匹配；故障现象匹配；置信度 94%。\n建议按以下顺序排查：\n1. 打印一张新的测试页，观察黑线是否出现在固定位置。\n2. 检查墨粉盒是否安装正确，外壳有无明显损伤。\n3. 按用户手册允许的方式清理用户可接触区域。\n4. 更换已确认存在问题的兼容耗材进行测试。\n5. 若黑线仍然存在，交由专业人员检查成像组件。\n\n安全提示：中风险。禁止触摸成像鼓表面或使用液体直接清洗内部组件。拆卸内部成像机构应由专业维修人员进行。\n手册风险标注：中。\n\n来源：printer_LX2000.md · 第100-115行 · E07 · 打出来的纸上有一道道黑线，看着特别脏\n以上内容仅依据上述手册章节整理；如步骤提示停止使用或联系专业人员，请照做。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:sufficient",
+            "D1:llm_signals=used",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=-)",
+            "G:accepted(E07,confidence=0.94)",
+            "H:answer_grounded",
+            "H:follow_up_open"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "risk",
+            "input": "lx-2000 打出来有一道道黑线",
+            "raw": {
+              "signals": [],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [
+          "print_quality"
+        ],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "B:sufficient",
+          "D1:llm_signals=used",
+          "D1b:keyword_signals=0",
+          "D2:risk=low",
+          "F:retrieve(model=LX-2000,codes=-)",
+          "G:accepted(E07,confidence=0.94)",
+          "H:answer_grounded",
+          "H:follow_up_open"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "SUF-07",
+      "category": "sufficient_info",
+      "description": "电脑连不上打印机，应命中 E14",
+      "messages": [
+        "LX-2000 连不上电脑"
+      ],
+      "expected": {
+        "turn_actions": [
+          "diagnose"
+        ],
+        "final_action": "diagnose",
+        "ask_count": 0,
+        "code": "E14",
+        "risk_level": "low",
+        "require_sources": true,
+        "message_contains": [
+          "E14",
+          "来源：printer_LX2000.md"
+        ]
+      },
+      "rule": {
+        "id": "SUF-07",
+        "category": "sufficient_info",
+        "description": "电脑连不上打印机，应命中 E14",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "diagnose"
+          ],
+          "final_action": "diagnose",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 1,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": "E14",
+          "source_count": 1,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "根据维修手册，您的情况匹配：打印机明明连着网，电脑还是找不到它（E14）。\n适用性：型号 LX-2000 匹配；故障现象匹配；置信度 90%。\n建议按以下顺序排查：\n1. 检查网线两端是否连接牢固。\n2. 查看打印机网络状态页面，确认是否获得有效的网络地址。\n3. 检查电脑是否连接到能够访问打印机的网络。\n4. 在电脑上重新选择 LX-2000，并检查打印端口设置。\n5. 如仍无法连接，请由网络管理员检查网络配置。\n\n安全提示：低风险。禁止自行拆开网络接口或带电维修内部电路。\n手册风险标注：低。\n\n来源：printer_LX2000.md · 第211-226行 · E14 · 打印机明明连着网，电脑还是找不到它\n以上内容仅依据上述手册章节整理；如步骤提示停止使用或联系专业人员，请照做。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:sufficient",
+            "D1:llm_signals=fallback",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=-)",
+            "G:accepted(E14,confidence=0.90)",
+            "H:answer_grounded",
+            "H:follow_up_open"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "diagnose"
+          ],
+          "final_action": "diagnose",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 1,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": "E14",
+          "source_count": 1,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "根据维修手册，您的情况匹配：打印机明明连着网，电脑还是找不到它（E14）。\n适用性：型号 LX-2000 匹配；故障现象匹配；置信度 90%。\n建议按以下顺序排查：\n1. 检查网线两端是否连接牢固。\n2. 查看打印机网络状态页面，确认是否获得有效的网络地址。\n3. 检查电脑是否连接到能够访问打印机的网络。\n4. 在电脑上重新选择 LX-2000，并检查打印端口设置。\n5. 如仍无法连接，请由网络管理员检查网络配置。\n\n安全提示：低风险。禁止自行拆开网络接口或带电维修内部电路。\n手册风险标注：低。\n\n来源：printer_LX2000.md · 第211-226行 · E14 · 打印机明明连着网，电脑还是找不到它\n以上内容仅依据上述手册章节整理；如步骤提示停止使用或联系专业人员，请照做。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:sufficient",
+            "D1:llm_signals=used",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=-)",
+            "G:accepted(E14,confidence=0.90)",
+            "H:answer_grounded",
+            "H:follow_up_open"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "risk",
+            "input": "lx-2000 连不上电脑",
+            "raw": {
+              "signals": [],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [
+          "connectivity"
+        ],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "B:sufficient",
+          "D1:llm_signals=used",
+          "D1b:keyword_signals=0",
+          "D2:risk=low",
+          "F:retrieve(model=LX-2000,codes=-)",
+          "G:accepted(E14,confidence=0.90)",
+          "H:answer_grounded",
+          "H:follow_up_open"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "SUF-08",
+      "category": "sufficient_info",
+      "description": "纸盒有纸却提示缺纸，应命中 E06",
+      "messages": [
+        "LX-2000 纸盒里有纸但提示没纸"
+      ],
+      "expected": {
+        "turn_actions": [
+          "diagnose"
+        ],
+        "final_action": "diagnose",
+        "ask_count": 0,
+        "code": "E06",
+        "risk_level": "low",
+        "require_sources": true,
+        "message_contains": [
+          "E06",
+          "来源：printer_LX2000.md"
+        ]
+      },
+      "rule": {
+        "id": "SUF-08",
+        "category": "sufficient_info",
+        "description": "纸盒有纸却提示缺纸，应命中 E06",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "diagnose"
+          ],
+          "final_action": "diagnose",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 1,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": "E06",
+          "source_count": 1,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "根据维修手册，您的情况匹配：纸盒里明明有纸，它却一直说没纸（E06）。\n适用性：型号 LX-2000 匹配；故障现象匹配；置信度 94%。\n建议按以下顺序排查：\n1. 拉出纸盒，取出纸张并整理整齐。\n2. 将纸张放回纸盒，确保没有超过装纸上限。\n3. 调整纸张导板，使其贴合纸张但不挤压纸张。\n4. 将纸盒推到底，重新尝试打印。\n5. 如果仍然提示缺纸，停止反复推拉纸盒并联系维修人员。\n\n安全提示：低风险。不要将手指伸入正在运转的进纸机构。\n手册风险标注：低。\n\n来源：printer_LX2000.md · 第84-99行 · E06 · 纸盒里明明有纸，它却一直说没纸\n以上内容仅依据上述手册章节整理；如步骤提示停止使用或联系专业人员，请照做。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:sufficient",
+            "D1:llm_signals=fallback",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=-)",
+            "G:accepted(E06,confidence=0.94)",
+            "H:answer_grounded",
+            "H:follow_up_open"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "diagnose"
+          ],
+          "final_action": "diagnose",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 1,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": "E06",
+          "source_count": 1,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "根据维修手册，您的情况匹配：纸盒里明明有纸，它却一直说没纸（E06）。\n适用性：型号 LX-2000 匹配；故障现象匹配；置信度 94%。\n建议按以下顺序排查：\n1. 拉出纸盒，取出纸张并整理整齐。\n2. 将纸张放回纸盒，确保没有超过装纸上限。\n3. 调整纸张导板，使其贴合纸张但不挤压纸张。\n4. 将纸盒推到底，重新尝试打印。\n5. 如果仍然提示缺纸，停止反复推拉纸盒并联系维修人员。\n\n安全提示：低风险。不要将手指伸入正在运转的进纸机构。\n手册风险标注：低。\n\n来源：printer_LX2000.md · 第84-99行 · E06 · 纸盒里明明有纸，它却一直说没纸\n以上内容仅依据上述手册章节整理；如步骤提示停止使用或联系专业人员，请照做。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:sufficient",
+            "D1:llm_signals=used",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=-)",
+            "G:accepted(E06,confidence=0.94)",
+            "H:answer_grounded",
+            "H:follow_up_open"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "risk",
+            "input": "lx-2000 纸盒里有纸但提示没纸",
+            "raw": {
+              "signals": [],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [
+          "paper_feed"
+        ],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "B:sufficient",
+          "D1:llm_signals=used",
+          "D1b:keyword_signals=0",
+          "D2:risk=low",
+          "F:retrieve(model=LX-2000,codes=-)",
+          "G:accepted(E06,confidence=0.94)",
+          "H:answer_grounded",
+          "H:follow_up_open"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "RISK-01",
+      "category": "high_risk",
+      "description": "冒烟，无需型号，立即转人工",
+      "messages": [
+        "冒烟了"
+      ],
+      "expected": {
+        "turn_actions": [
+          "handoff"
+        ],
+        "final_action": "handoff",
+        "reason_code": "high_risk",
+        "ask_count": 0,
+        "risk_level": "high",
+        "queue": "safety_escalation",
+        "out_of_scope": false,
+        "message_contains": [
+          "停止使用",
+          "转人工"
+        ],
+        "message_not_contains": [
+          "建议按以下顺序排查"
+        ]
+      },
+      "rule": {
+        "id": "RISK-01",
+        "category": "high_risk",
+        "description": "冒烟，无需型号，立即转人工",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "high_risk",
+          "follow_up_count": 0,
+          "asked_slots_count": 0,
+          "risk_level": "high",
+          "queue": "safety_escalation",
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [
+            "E11"
+          ],
+          "ticket_present": true,
+          "message": "检测到可能涉及冒烟、焦味、漏电、火花或异常高温的高风险信号。请立即停止使用并远离设备；只有在无需接近烟雾或危险源、且可以安全操作时，才切断电源。不要再次通电、不要自行拆机。若出现明火、持续烟雾或有人受伤，请撤离并联系消防或急救。已转人工并生成交接单。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:safety_sufficient",
+            "D1:llm_signals=fallback",
+            "D1b:keyword_signals=1",
+            "D2:risk=high",
+            "I:high_risk"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "high_risk",
+          "follow_up_count": 0,
+          "asked_slots_count": 0,
+          "risk_level": "high",
+          "queue": "safety_escalation",
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [
+            "E11"
+          ],
+          "ticket_present": true,
+          "message": "检测到可能涉及冒烟、焦味、漏电、火花或异常高温的高风险信号。请立即停止使用并远离设备；只有在无需接近烟雾或危险源、且可以安全操作时，才切断电源。不要再次通电、不要自行拆机。若出现明火、持续烟雾或有人受伤，请撤离并联系消防或急救。已转人工并生成交接单。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:safety_sufficient",
+            "D1:llm_signals=used",
+            "D1b:keyword_signals=1",
+            "D2:risk=high",
+            "I:high_risk"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "risk",
+            "input": "冒烟了",
+            "raw": {
+              "signals": [
+                {
+                  "category": "smoke",
+                  "evidence": "冒烟了",
+                  "negated": false
+                }
+              ],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "B:safety_sufficient",
+          "D1:llm_signals=used",
+          "D1b:keyword_signals=1",
+          "D2:risk=high",
+          "I:high_risk"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "RISK-02",
+      "category": "high_risk",
+      "description": "漏电，无需型号，立即转人工",
+      "messages": [
+        "漏电了"
+      ],
+      "expected": {
+        "turn_actions": [
+          "handoff"
+        ],
+        "final_action": "handoff",
+        "reason_code": "high_risk",
+        "ask_count": 0,
+        "risk_level": "high",
+        "queue": "safety_escalation",
+        "out_of_scope": false,
+        "message_contains": [
+          "停止使用",
+          "转人工"
+        ],
+        "message_not_contains": [
+          "建议按以下顺序排查"
+        ]
+      },
+      "rule": {
+        "id": "RISK-02",
+        "category": "high_risk",
+        "description": "漏电，无需型号，立即转人工",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "high_risk",
+          "follow_up_count": 0,
+          "asked_slots_count": 0,
+          "risk_level": "high",
+          "queue": "safety_escalation",
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [
+            null,
+            null
+          ],
+          "ticket_present": true,
+          "message": "检测到可能涉及冒烟、焦味、漏电、火花或异常高温的高风险信号。请立即停止使用并远离设备；只有在无需接近烟雾或危险源、且可以安全操作时，才切断电源。不要再次通电、不要自行拆机。若出现明火、持续烟雾或有人受伤，请撤离并联系消防或急救。已转人工并生成交接单。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:safety_sufficient",
+            "D1:llm_signals=fallback",
+            "D1b:keyword_signals=1",
+            "D2:risk=high",
+            "I:high_risk"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "high_risk",
+          "follow_up_count": 0,
+          "asked_slots_count": 0,
+          "risk_level": "high",
+          "queue": "safety_escalation",
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [
+            null,
+            null
+          ],
+          "ticket_present": true,
+          "message": "检测到可能涉及冒烟、焦味、漏电、火花或异常高温的高风险信号。请立即停止使用并远离设备；只有在无需接近烟雾或危险源、且可以安全操作时，才切断电源。不要再次通电、不要自行拆机。若出现明火、持续烟雾或有人受伤，请撤离并联系消防或急救。已转人工并生成交接单。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:safety_sufficient",
+            "D1:llm_signals=used",
+            "D1b:keyword_signals=1",
+            "D2:risk=high",
+            "I:high_risk"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "risk",
+            "input": "漏电了",
+            "raw": {
+              "signals": [
+                {
+                  "category": "electric_shock",
+                  "evidence": "漏电了",
+                  "negated": false
+                }
+              ],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "B:safety_sufficient",
+          "D1:llm_signals=used",
+          "D1b:keyword_signals=1",
+          "D2:risk=high",
+          "I:high_risk"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "RISK-03",
+      "category": "high_risk",
+      "description": "烧焦味，立即转人工",
+      "messages": [
+        "有烧焦味"
+      ],
+      "expected": {
+        "turn_actions": [
+          "handoff"
+        ],
+        "final_action": "handoff",
+        "reason_code": "high_risk",
+        "ask_count": 0,
+        "risk_level": "high",
+        "queue": "safety_escalation",
+        "out_of_scope": false,
+        "message_contains": [
+          "停止使用",
+          "转人工"
+        ],
+        "message_not_contains": [
+          "建议按以下顺序排查"
+        ]
+      },
+      "rule": {
+        "id": "RISK-03",
+        "category": "high_risk",
+        "description": "烧焦味，立即转人工",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "high_risk",
+          "follow_up_count": 0,
+          "asked_slots_count": 0,
+          "risk_level": "high",
+          "queue": "safety_escalation",
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [
+            "E11"
+          ],
+          "ticket_present": true,
+          "message": "检测到可能涉及冒烟、焦味、漏电、火花或异常高温的高风险信号。请立即停止使用并远离设备；只有在无需接近烟雾或危险源、且可以安全操作时，才切断电源。不要再次通电、不要自行拆机。若出现明火、持续烟雾或有人受伤，请撤离并联系消防或急救。已转人工并生成交接单。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:safety_sufficient",
+            "D1:llm_signals=fallback",
+            "D1b:keyword_signals=1",
+            "D2:risk=high",
+            "I:high_risk"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "high_risk",
+          "follow_up_count": 0,
+          "asked_slots_count": 0,
+          "risk_level": "high",
+          "queue": "safety_escalation",
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [
+            "E11"
+          ],
+          "ticket_present": true,
+          "message": "检测到可能涉及冒烟、焦味、漏电、火花或异常高温的高风险信号。请立即停止使用并远离设备；只有在无需接近烟雾或危险源、且可以安全操作时，才切断电源。不要再次通电、不要自行拆机。若出现明火、持续烟雾或有人受伤，请撤离并联系消防或急救。已转人工并生成交接单。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:safety_sufficient",
+            "D1:llm_signals=used",
+            "D1b:keyword_signals=1",
+            "D2:risk=high",
+            "I:high_risk"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "risk",
+            "input": "有烧焦味",
+            "raw": {
+              "signals": [
+                {
+                  "category": "burning_smell",
+                  "evidence": "有烧焦味",
+                  "negated": false
+                }
+              ],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "B:safety_sufficient",
+          "D1:llm_signals=used",
+          "D1b:keyword_signals=1",
+          "D2:risk=high",
+          "I:high_risk"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "RISK-04",
+      "category": "high_risk",
+      "description": "起火，立即转人工",
+      "messages": [
+        "起火了"
+      ],
+      "expected": {
+        "turn_actions": [
+          "handoff"
+        ],
+        "final_action": "handoff",
+        "reason_code": "high_risk",
+        "ask_count": 0,
+        "risk_level": "high",
+        "queue": "safety_escalation",
+        "out_of_scope": false,
+        "message_contains": [
+          "停止使用",
+          "转人工"
+        ],
+        "message_not_contains": [
+          "建议按以下顺序排查"
+        ]
+      },
+      "rule": {
+        "id": "RISK-04",
+        "category": "high_risk",
+        "description": "起火，立即转人工",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "high_risk",
+          "follow_up_count": 0,
+          "asked_slots_count": 0,
+          "risk_level": "high",
+          "queue": "safety_escalation",
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [],
+          "ticket_present": true,
+          "message": "检测到可能涉及冒烟、焦味、漏电、火花或异常高温的高风险信号。请立即停止使用并远离设备；只有在无需接近烟雾或危险源、且可以安全操作时，才切断电源。不要再次通电、不要自行拆机。若出现明火、持续烟雾或有人受伤，请撤离并联系消防或急救。已转人工并生成交接单。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:safety_sufficient",
+            "D1:llm_signals=fallback",
+            "D1b:keyword_signals=1",
+            "D2:risk=high",
+            "I:high_risk"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "high_risk",
+          "follow_up_count": 0,
+          "asked_slots_count": 0,
+          "risk_level": "high",
+          "queue": "safety_escalation",
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [],
+          "ticket_present": true,
+          "message": "检测到可能涉及冒烟、焦味、漏电、火花或异常高温的高风险信号。请立即停止使用并远离设备；只有在无需接近烟雾或危险源、且可以安全操作时，才切断电源。不要再次通电、不要自行拆机。若出现明火、持续烟雾或有人受伤，请撤离并联系消防或急救。已转人工并生成交接单。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:safety_sufficient",
+            "D1:llm_signals=used",
+            "D1b:keyword_signals=1",
+            "D2:risk=high",
+            "I:high_risk"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "risk",
+            "input": "起火了",
+            "raw": {
+              "signals": [
+                {
+                  "category": "fire",
+                  "evidence": "起火了",
+                  "negated": false
+                }
+              ],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "B:safety_sufficient",
+          "D1:llm_signals=used",
+          "D1b:keyword_signals=1",
+          "D2:risk=high",
+          "I:high_risk"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "RISK-05",
+      "category": "high_risk",
+      "description": "异响并伴随震动，升级为高风险",
+      "messages": [
+        "异响带震动"
+      ],
+      "expected": {
+        "turn_actions": [
+          "handoff"
+        ],
+        "final_action": "handoff",
+        "reason_code": "high_risk",
+        "ask_count": 0,
+        "risk_level": "high",
+        "queue": "safety_escalation",
+        "out_of_scope": false,
+        "message_contains": [
+          "停止使用",
+          "转人工"
+        ],
+        "message_not_contains": [
+          "建议按以下顺序排查"
+        ]
+      },
+      "rule": {
+        "id": "RISK-05",
+        "category": "high_risk",
+        "description": "异响并伴随震动，升级为高风险",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "high_risk",
+          "follow_up_count": 0,
+          "asked_slots_count": 0,
+          "risk_level": "high",
+          "queue": "safety_escalation",
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [
+            "E10"
+          ],
+          "ticket_present": true,
+          "message": "检测到可能涉及冒烟、焦味、漏电、火花或异常高温的高风险信号。请立即停止使用并远离设备；只有在无需接近烟雾或危险源、且可以安全操作时，才切断电源。不要再次通电、不要自行拆机。若出现明火、持续烟雾或有人受伤，请撤离并联系消防或急救。已转人工并生成交接单。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:safety_sufficient",
+            "D1:llm_signals=fallback",
+            "D1b:keyword_signals=2",
+            "D2:risk=high",
+            "I:high_risk"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "high_risk",
+          "follow_up_count": 0,
+          "asked_slots_count": 0,
+          "risk_level": "high",
+          "queue": "safety_escalation",
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [
+            "E10"
+          ],
+          "ticket_present": true,
+          "message": "检测到可能涉及冒烟、焦味、漏电、火花或异常高温的高风险信号。请立即停止使用并远离设备；只有在无需接近烟雾或危险源、且可以安全操作时，才切断电源。不要再次通电、不要自行拆机。若出现明火、持续烟雾或有人受伤，请撤离并联系消防或急救。已转人工并生成交接单。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:safety_sufficient",
+            "D1:llm_signals=used",
+            "D1b:keyword_signals=2",
+            "D2:risk=high",
+            "I:high_risk"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "risk",
+            "input": "异响带震动",
+            "raw": {
+              "signals": [
+                {
+                  "category": "abnormal_noise",
+                  "evidence": "异响",
+                  "negated": false
+                },
+                {
+                  "category": "vibration",
+                  "evidence": "震动",
+                  "negated": false
+                }
+              ],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [
+          "noise"
+        ],
+        "accepted_llm_risk_signals": [
+          {
+            "category": "abnormal_noise",
+            "label": "异响",
+            "evidence": "异响",
+            "source": "llm",
+            "negated": false
+          },
+          {
+            "category": "vibration",
+            "label": "震动",
+            "evidence": "震动",
+            "source": "llm",
+            "negated": false
+          }
+        ],
+        "stage_trace": [
+          "A:input_accumulated",
+          "B:safety_sufficient",
+          "D1:llm_signals=used",
+          "D1b:keyword_signals=2",
+          "D2:risk=high",
+          "I:high_risk"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "RISK-06",
+      "category": "high_risk",
+      "description": "机器很烫，按高风险处理",
+      "messages": [
+        "机器很烫"
+      ],
+      "expected": {
+        "turn_actions": [
+          "handoff"
+        ],
+        "final_action": "handoff",
+        "reason_code": "high_risk",
+        "ask_count": 0,
+        "risk_level": "high",
+        "queue": "safety_escalation",
+        "out_of_scope": false,
+        "message_contains": [
+          "停止使用",
+          "转人工"
+        ],
+        "message_not_contains": [
+          "建议按以下顺序排查"
+        ]
+      },
+      "rule": {
+        "id": "RISK-06",
+        "category": "high_risk",
+        "description": "机器很烫，按高风险处理",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "high_risk",
+          "follow_up_count": 0,
+          "asked_slots_count": 0,
+          "risk_level": "high",
+          "queue": "safety_escalation",
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [
+            "E02"
+          ],
+          "ticket_present": true,
+          "message": "检测到可能涉及冒烟、焦味、漏电、火花或异常高温的高风险信号。请立即停止使用并远离设备；只有在无需接近烟雾或危险源、且可以安全操作时，才切断电源。不要再次通电、不要自行拆机。若出现明火、持续烟雾或有人受伤，请撤离并联系消防或急救。已转人工并生成交接单。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:safety_sufficient",
+            "D1:llm_signals=fallback",
+            "D1b:keyword_signals=1",
+            "D2:risk=high",
+            "I:high_risk"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "high_risk",
+          "follow_up_count": 0,
+          "asked_slots_count": 0,
+          "risk_level": "high",
+          "queue": "safety_escalation",
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [
+            "E02"
+          ],
+          "ticket_present": true,
+          "message": "检测到可能涉及冒烟、焦味、漏电、火花或异常高温的高风险信号。请立即停止使用并远离设备；只有在无需接近烟雾或危险源、且可以安全操作时，才切断电源。不要再次通电、不要自行拆机。若出现明火、持续烟雾或有人受伤，请撤离并联系消防或急救。已转人工并生成交接单。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:safety_sufficient",
+            "D1:llm_signals=used",
+            "D1b:keyword_signals=1",
+            "D2:risk=high",
+            "I:high_risk"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "risk",
+            "input": "机器很烫",
+            "raw": {
+              "signals": [
+                {
+                  "category": "abnormal_heat",
+                  "evidence": "机器很烫",
+                  "negated": false
+                }
+              ],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "B:safety_sufficient",
+          "D1:llm_signals=used",
+          "D1b:keyword_signals=1",
+          "D2:risk=high",
+          "I:high_risk"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "NOMATCH-01",
+      "category": "unsupported_or_no_match",
+      "description": "LX-2001 不是 LX-2000，直接转人工且不追问现象",
+      "messages": [
+        "LX-2001 卡纸了"
+      ],
+      "expected": {
+        "turn_actions": [
+          "handoff"
+        ],
+        "final_action": "handoff",
+        "reason_code": "unsupported_model",
+        "ask_count": 0,
+        "risk_level": "low",
+        "queue": "product_scope_review",
+        "out_of_scope": true,
+        "candidate_codes": [],
+        "message_contains": [
+          "仅支持 LX-2000",
+          "LX-2001",
+          "转接人工客服"
+        ]
+      },
+      "rule": {
+        "id": "NOMATCH-01",
+        "category": "unsupported_or_no_match",
+        "description": "LX-2001 不是 LX-2000，直接转人工且不追问现象",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "unsupported_model",
+          "follow_up_count": 0,
+          "asked_slots_count": 0,
+          "risk_level": "low",
+          "queue": "product_scope_review",
+          "out_of_scope": true,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [],
+          "ticket_present": true,
+          "message": "抱歉，本分诊助手仅支持 LX-2000 型号。您提到的 LX-2001 暂不在支持范围内，正在为您转接人工客服。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "I:unsupported_model"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "unsupported_model",
+          "follow_up_count": 0,
+          "asked_slots_count": 0,
+          "risk_level": "low",
+          "queue": "product_scope_review",
+          "out_of_scope": true,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [],
+          "ticket_present": true,
+          "message": "抱歉，本分诊助手仅支持 LX-2000 型号。您提到的 LX-2001 暂不在支持范围内，正在为您转接人工客服。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "I:unsupported_model"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [],
+        "accepted_symptom_categories": [
+          "paper_jam"
+        ],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "I:unsupported_model"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "NOMATCH-02",
+      "category": "unsupported_or_no_match",
+      "description": "HP 型号不在支持范围，直接转人工且不塞 LX-2000 候选",
+      "messages": [
+        "HP 打印机卡纸了"
+      ],
+      "expected": {
+        "turn_actions": [
+          "handoff"
+        ],
+        "final_action": "handoff",
+        "reason_code": "unsupported_model",
+        "ask_count": 0,
+        "risk_level": "low",
+        "queue": "product_scope_review",
+        "out_of_scope": true,
+        "candidate_codes": [],
+        "message_contains": [
+          "仅支持 LX-2000",
+          "HP",
+          "转接人工客服"
+        ]
+      },
+      "rule": {
+        "id": "NOMATCH-02",
+        "category": "unsupported_or_no_match",
+        "description": "HP 型号不在支持范围，直接转人工且不塞 LX-2000 候选",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "unsupported_model",
+          "follow_up_count": 0,
+          "asked_slots_count": 0,
+          "risk_level": "low",
+          "queue": "product_scope_review",
+          "out_of_scope": true,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [],
+          "ticket_present": true,
+          "message": "抱歉，本分诊助手仅支持 LX-2000 型号。您提到的 HP 暂不在支持范围内，正在为您转接人工客服。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "I:unsupported_model"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "unsupported_model",
+          "follow_up_count": 0,
+          "asked_slots_count": 0,
+          "risk_level": "low",
+          "queue": "product_scope_review",
+          "out_of_scope": true,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [],
+          "ticket_present": true,
+          "message": "抱歉，本分诊助手仅支持 LX-2000 型号。您提到的 HP 暂不在支持范围内，正在为您转接人工客服。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "I:unsupported_model"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [],
+        "accepted_symptom_categories": [
+          "paper_jam"
+        ],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "I:unsupported_model"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "NOMATCH-03",
+      "category": "unsupported_or_no_match",
+      "description": "E99 在手册中不存在，应转人工",
+      "messages": [
+        "LX-2000 显示E99"
+      ],
+      "expected": {
+        "turn_actions": [
+          "handoff"
+        ],
+        "final_action": "handoff",
+        "reason_code": "code_not_found",
+        "ask_count": 0,
+        "risk_level": "low",
+        "queue": "general_after_sales",
+        "out_of_scope": false,
+        "message_contains": [
+          "E99",
+          "转人工"
+        ]
+      },
+      "rule": {
+        "id": "NOMATCH-03",
+        "category": "unsupported_or_no_match",
+        "description": "E99 在手册中不存在，应转人工",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "code_not_found",
+          "follow_up_count": 0,
+          "asked_slots_count": 0,
+          "risk_level": "low",
+          "queue": "general_after_sales",
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [
+            "E08",
+            "E15",
+            null
+          ],
+          "ticket_present": true,
+          "message": "维修手册中未找到 E99 对应且可安全执行的章节。已转人工进一步确认。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:sufficient",
+            "D1:llm_signals=fallback",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=E99)",
+            "G:rejected(code_not_found)",
+            "I:retrieval_failed"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "code_not_found",
+          "follow_up_count": 0,
+          "asked_slots_count": 0,
+          "risk_level": "low",
+          "queue": "general_after_sales",
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [
+            "E08",
+            "E15",
+            null
+          ],
+          "ticket_present": true,
+          "message": "维修手册中未找到 E99 对应且可安全执行的章节。已转人工进一步确认。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:sufficient",
+            "D1:llm_signals=used",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=E99)",
+            "G:rejected(code_not_found)",
+            "I:retrieval_failed"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "risk",
+            "input": "lx-2000 显示e99",
+            "raw": {
+              "signals": [],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "B:sufficient",
+          "D1:llm_signals=used",
+          "D1b:keyword_signals=0",
+          "D2:risk=low",
+          "F:retrieve(model=LX-2000,codes=E99)",
+          "G:rejected(code_not_found)",
+          "I:retrieval_failed"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "NOMATCH-04",
+      "category": "unsupported_or_no_match",
+      "description": "E01 与不出纸冲突，追问一次后仍冲突则转人工",
+      "messages": [
+        "LX-2000 显示E01不出纸",
+        "屏幕就是E01，纸也完全不出来"
+      ],
+      "expected": {
+        "turn_actions": [
+          "ask",
+          "handoff"
+        ],
+        "final_action": "handoff",
+        "reason_code": "code_symptom_conflict",
+        "ask_count": 1,
+        "follow_up_count": 1,
+        "asked_slots_count": 1,
+        "risk_level": "low",
+        "queue": "general_after_sales",
+        "out_of_scope": false,
+        "message_contains": [
+          "错误代码与故障现象",
+          "转人工"
+        ]
+      },
+      "rule": {
+        "id": "NOMATCH-04",
+        "category": "unsupported_or_no_match",
+        "description": "E01 与不出纸冲突，追问一次后仍冲突则转人工",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "ask",
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 1,
+          "model_ask_count": 0,
+          "fault_ask_count": 1,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "code_symptom_conflict",
+          "follow_up_count": 1,
+          "asked_slots_count": 1,
+          "risk_level": "low",
+          "queue": "general_after_sales",
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [
+            "E02",
+            "E01",
+            null
+          ],
+          "ticket_present": true,
+          "message": "您提供的错误代码与故障现象指向不同故障，且补充确认后仍不一致。当前无法确定唯一适用的手册章节，已转人工核对代码和实际现象。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:sufficient",
+            "D1:llm_signals=fallback",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=E01)",
+            "G:rejected(code_symptom_conflict)",
+            "I:retrieval_failed"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "ask",
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 1,
+          "model_ask_count": 0,
+          "fault_ask_count": 1,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "code_symptom_conflict",
+          "follow_up_count": 1,
+          "asked_slots_count": 1,
+          "risk_level": "low",
+          "queue": "general_after_sales",
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [
+            "E02",
+            "E01",
+            null
+          ],
+          "ticket_present": true,
+          "message": "您提供的错误代码与故障现象指向不同故障，且补充确认后仍不一致。当前无法确定唯一适用的手册章节，已转人工核对代码和实际现象。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:sufficient",
+            "D1:llm_signals=used",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=E01)",
+            "G:rejected(code_symptom_conflict)",
+            "I:retrieval_failed"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "risk",
+            "input": "lx-2000 显示e01不出纸",
+            "raw": {
+              "signals": [],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          },
+          {
+            "kind": "risk",
+            "input": "lx-2000 显示e01不出纸 屏幕就是e01,纸也完全不出来",
+            "raw": {
+              "signals": [],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [
+          "paper_output"
+        ],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "B:sufficient",
+          "D1:llm_signals=used",
+          "D1b:keyword_signals=0",
+          "D2:risk=low",
+          "F:retrieve(model=LX-2000,codes=E01)",
+          "G:rejected(code_symptom_conflict)",
+          "I:retrieval_failed"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "NOMATCH-05",
+      "category": "unsupported_or_no_match",
+      "description": "同时出现 LX-2000 和 HP，型号冲突应转人工",
+      "messages": [
+        "LX-2000 和 HP 打印机都卡纸了"
+      ],
+      "expected": {
+        "turn_actions": [
+          "handoff"
+        ],
+        "final_action": "handoff",
+        "reason_code": "model_conflict",
+        "ask_count": 0,
+        "risk_level": "low",
+        "queue": "product_scope_review",
+        "out_of_scope": false,
+        "candidate_codes": [],
+        "message_contains": [
+          "型号信息",
+          "转人工"
+        ]
+      },
+      "rule": {
+        "id": "NOMATCH-05",
+        "category": "unsupported_or_no_match",
+        "description": "同时出现 LX-2000 和 HP，型号冲突应转人工",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "model_conflict",
+          "follow_up_count": 0,
+          "asked_slots_count": 0,
+          "risk_level": "low",
+          "queue": "product_scope_review",
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [],
+          "ticket_present": true,
+          "message": "该维修手册只适用于 LX-2000，当前型号信息无法确认或不在覆盖范围内。为避免套用错误步骤，已转人工核对机型。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "I:model_conflict"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "model_conflict",
+          "follow_up_count": 0,
+          "asked_slots_count": 0,
+          "risk_level": "low",
+          "queue": "product_scope_review",
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [],
+          "ticket_present": true,
+          "message": "该维修手册只适用于 LX-2000，当前型号信息无法确认或不在覆盖范围内。为避免套用错误步骤，已转人工核对机型。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "I:model_conflict"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [],
+        "accepted_symptom_categories": [
+          "paper_jam"
+        ],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "I:model_conflict"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "BOUND-01",
+      "category": "unsupported_or_no_match",
+      "description": "低置信度门禁：症状太泛，检索置信度低于阈值，应转人工",
+      "messages": [
+        "LX-2000 打印不清晰"
+      ],
+      "expected": {
+        "turn_actions": [
+          "handoff"
+        ],
+        "final_action": "handoff",
+        "reason_code": "low_confidence",
+        "ask_count": 0,
+        "risk_level": "low",
+        "queue": "general_after_sales",
+        "out_of_scope": false,
+        "message_contains": [
+          "没有足够确定",
+          "转人工"
+        ]
+      },
+      "rule": {
+        "id": "BOUND-01",
+        "category": "unsupported_or_no_match",
+        "description": "低置信度门禁：症状太泛，检索置信度低于阈值，应转人工",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "low_confidence",
+          "follow_up_count": 0,
+          "asked_slots_count": 0,
+          "risk_level": "low",
+          "queue": "general_after_sales",
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [
+            "E13"
+          ],
+          "ticket_present": true,
+          "message": "维修手册中没有足够确定、且同时满足型号与故障现象匹配的排查内容。为避免给出错误步骤，已转人工。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:sufficient",
+            "D1:llm_signals=fallback",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=-)",
+            "G:rejected(low_confidence)",
+            "I:retrieval_failed"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 0,
+          "excluded_codes": [],
+          "reason_code": "low_confidence",
+          "follow_up_count": 0,
+          "asked_slots_count": 0,
+          "risk_level": "low",
+          "queue": "general_after_sales",
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [
+            "E13"
+          ],
+          "ticket_present": true,
+          "message": "维修手册中没有足够确定、且同时满足型号与故障现象匹配的排查内容。为避免给出错误步骤，已转人工。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:sufficient",
+            "D1:llm_signals=used",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=-)",
+            "G:rejected(low_confidence)",
+            "I:retrieval_failed"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "risk",
+            "input": "lx-2000 打印不清晰",
+            "raw": {
+              "signals": [],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [
+          "print_quality"
+        ],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "B:sufficient",
+          "D1:llm_signals=used",
+          "D1b:keyword_signals=0",
+          "D2:risk=low",
+          "F:retrieve(model=LX-2000,codes=-)",
+          "G:rejected(low_confidence)",
+          "I:retrieval_failed"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "BOUND-02",
+      "category": "sufficient_info",
+      "description": "多轮补全成功：两轮追问后补齐型号和现象，最终命中 E02",
+      "messages": [
+        "机器坏了",
+        "LX-2000",
+        "纸出不来了"
+      ],
+      "expected": {
+        "turn_actions": [
+          "ask",
+          "ask",
+          "diagnose"
+        ],
+        "final_action": "diagnose",
+        "ask_count": 2,
+        "model_ask_count": 1,
+        "fault_ask_count": 1,
+        "code": "E02",
+        "risk_level": "low",
+        "require_sources": true,
+        "message_contains": [
+          "E02",
+          "来源：printer_LX2000.md"
+        ]
+      },
+      "rule": {
+        "id": "BOUND-02",
+        "category": "sufficient_info",
+        "description": "多轮补全成功：两轮追问后补齐型号和现象，最终命中 E02",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "ask",
+            "ask",
+            "diagnose"
+          ],
+          "final_action": "diagnose",
+          "ask_count": 2,
+          "model_ask_count": 1,
+          "fault_ask_count": 1,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 1,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": "E02",
+          "source_count": 1,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "根据维修手册，您的情况匹配：纸卡在里面了，怎么拉都拉不出来（E02）。\n适用性：型号 LX-2000 匹配；故障现象匹配；置信度 89%。\n\n【安全警告】中高风险。打印后定影组件可能仍然很烫，须等待机器充分冷却。禁止使用刀具、金属钩或尖锐物品伸入机器内部。\n手册风险标注：高。\n\n建议按以下顺序排查：\n1. 关闭打印机并拔掉电源线。\n2. 打开用户手册允许开启的纸盒和检修盖。\n3. 沿纸张运行方向缓慢取出卡纸，避免用力拉扯。\n4. 检查是否有残留纸屑，并重新装入平整纸张。\n5. 重新通电，打印测试页确认是否恢复。\n\n来源：printer_LX2000.md · 第20-35行 · E02 · 纸卡在里面了，怎么拉都拉不出来\n以上内容仅依据上述手册章节整理；如步骤提示停止使用或联系专业人员，请照做。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:sufficient",
+            "D1:llm_signals=fallback",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=-)",
+            "G:accepted(E02,confidence=0.89)",
+            "H:answer_grounded",
+            "H:follow_up_open"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "ask",
+            "ask",
+            "diagnose"
+          ],
+          "final_action": "diagnose",
+          "ask_count": 2,
+          "model_ask_count": 1,
+          "fault_ask_count": 1,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 1,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": "E02",
+          "source_count": 1,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "根据维修手册，您的情况匹配：纸卡在里面了，怎么拉都拉不出来（E02）。\n适用性：型号 LX-2000 匹配；故障现象匹配；置信度 89%。\n\n【安全警告】中高风险。打印后定影组件可能仍然很烫，须等待机器充分冷却。禁止使用刀具、金属钩或尖锐物品伸入机器内部。\n手册风险标注：高。\n\n建议按以下顺序排查：\n1. 关闭打印机并拔掉电源线。\n2. 打开用户手册允许开启的纸盒和检修盖。\n3. 沿纸张运行方向缓慢取出卡纸，避免用力拉扯。\n4. 检查是否有残留纸屑，并重新装入平整纸张。\n5. 重新通电，打印测试页确认是否恢复。\n\n来源：printer_LX2000.md · 第20-35行 · E02 · 纸卡在里面了，怎么拉都拉不出来\n以上内容仅依据上述手册章节整理；如步骤提示停止使用或联系专业人员，请照做。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:sufficient",
+            "D1:llm_signals=used",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=-)",
+            "G:accepted(E02,confidence=0.89)",
+            "H:answer_grounded",
+            "H:follow_up_open"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "symptom",
+            "input": "机器坏了 lx-2000",
+            "raw": {
+              "symptoms": [],
+              "uncertain": true
+            },
+            "notes": [
+              "LLM 对故障现象提取表示不确定"
+            ],
+            "ok": true
+          },
+          {
+            "kind": "risk",
+            "input": "机器坏了 lx-2000 纸出不来了",
+            "raw": {
+              "signals": [],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [
+          "paper_jam",
+          "vague"
+        ],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "B:sufficient",
+          "D1:llm_signals=used",
+          "D1b:keyword_signals=0",
+          "D2:risk=low",
+          "F:retrieve(model=LX-2000,codes=-)",
+          "G:accepted(E02,confidence=0.89)",
+          "H:answer_grounded",
+          "H:follow_up_open"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "BOUND-03",
+      "category": "sufficient_info",
+      "description": "冲突后代码更正：先追问一次，用户改成 E02 后重新检索并诊断",
+      "messages": [
+        "LX-2000 显示E01不出纸",
+        "看错了，其实是E02"
+      ],
+      "expected": {
+        "turn_actions": [
+          "ask",
+          "diagnose"
+        ],
+        "final_action": "diagnose",
+        "ask_count": 1,
+        "code": "E02",
+        "risk_level": "low",
+        "require_sources": true,
+        "message_contains": [
+          "E02",
+          "来源：printer_LX2000.md"
+        ]
+      },
+      "rule": {
+        "id": "BOUND-03",
+        "category": "sufficient_info",
+        "description": "冲突后代码更正：先追问一次，用户改成 E02 后重新检索并诊断",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "ask",
+            "diagnose"
+          ],
+          "final_action": "diagnose",
+          "ask_count": 1,
+          "model_ask_count": 0,
+          "fault_ask_count": 1,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 1,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": "E02",
+          "source_count": 1,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "根据维修手册，您的情况匹配：纸卡在里面了，怎么拉都拉不出来（E02）。\n适用性：型号 LX-2000 匹配；故障现象匹配；置信度 84%。\n\n【安全警告】中高风险。打印后定影组件可能仍然很烫，须等待机器充分冷却。禁止使用刀具、金属钩或尖锐物品伸入机器内部。\n手册风险标注：高。\n\n建议按以下顺序排查：\n1. 关闭打印机并拔掉电源线。\n2. 打开用户手册允许开启的纸盒和检修盖。\n3. 沿纸张运行方向缓慢取出卡纸，避免用力拉扯。\n4. 检查是否有残留纸屑，并重新装入平整纸张。\n5. 重新通电，打印测试页确认是否恢复。\n\n来源：printer_LX2000.md · 第20-35行 · E02 · 纸卡在里面了，怎么拉都拉不出来\n以上内容仅依据上述手册章节整理；如步骤提示停止使用或联系专业人员，请照做。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:sufficient",
+            "D1:llm_signals=fallback",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=E02)",
+            "G:accepted(E02,confidence=0.84)",
+            "H:answer_grounded",
+            "H:follow_up_open"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "ask",
+            "diagnose"
+          ],
+          "final_action": "diagnose",
+          "ask_count": 1,
+          "model_ask_count": 0,
+          "fault_ask_count": 1,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 1,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": "E02",
+          "source_count": 1,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "根据维修手册，您的情况匹配：纸卡在里面了，怎么拉都拉不出来（E02）。\n适用性：型号 LX-2000 匹配；故障现象匹配；置信度 84%。\n\n【安全警告】中高风险。打印后定影组件可能仍然很烫，须等待机器充分冷却。禁止使用刀具、金属钩或尖锐物品伸入机器内部。\n手册风险标注：高。\n\n建议按以下顺序排查：\n1. 关闭打印机并拔掉电源线。\n2. 打开用户手册允许开启的纸盒和检修盖。\n3. 沿纸张运行方向缓慢取出卡纸，避免用力拉扯。\n4. 检查是否有残留纸屑，并重新装入平整纸张。\n5. 重新通电，打印测试页确认是否恢复。\n\n来源：printer_LX2000.md · 第20-35行 · E02 · 纸卡在里面了，怎么拉都拉不出来\n以上内容仅依据上述手册章节整理；如步骤提示停止使用或联系专业人员，请照做。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:sufficient",
+            "D1:llm_signals=used",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=E02)",
+            "G:accepted(E02,confidence=0.84)",
+            "H:answer_grounded",
+            "H:follow_up_open"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "risk",
+            "input": "lx-2000 显示e01不出纸",
+            "raw": {
+              "signals": [],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          },
+          {
+            "kind": "risk",
+            "input": "lx-2000 显示e01不出纸 看错了,其实是e02",
+            "raw": {
+              "signals": [],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [
+          "paper_output"
+        ],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "B:sufficient",
+          "D1:llm_signals=used",
+          "D1b:keyword_signals=0",
+          "D2:risk=low",
+          "F:retrieve(model=LX-2000,codes=E02)",
+          "G:accepted(E02,confidence=0.84)",
+          "H:answer_grounded",
+          "H:follow_up_open"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "BOUND-04",
+      "category": "sufficient_info",
+      "description": "打印中断同义表达：打印一半停住应直接归类为 E08，不再重复追问",
+      "messages": [
+        "LX-2000 打印一半停了"
+      ],
+      "expected": {
+        "turn_actions": [
+          "diagnose"
+        ],
+        "final_action": "diagnose",
+        "ask_count": 0,
+        "model_ask_count": 0,
+        "fault_ask_count": 0,
+        "code": "E08",
+        "risk_level": "low",
+        "require_sources": true,
+        "message_contains": [
+          "E08",
+          "来源：printer_LX2000.md"
+        ]
+      },
+      "rule": {
+        "id": "BOUND-04",
+        "category": "sufficient_info",
+        "description": "打印中断同义表达：打印一半停住应直接归类为 E08，不再重复追问",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "diagnose"
+          ],
+          "final_action": "diagnose",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 1,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": "E08",
+          "source_count": 1,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "根据维修手册，您的情况匹配：打印到一半，机器突然停了，还显示纸张不对（E08）。\n适用性：型号 LX-2000 匹配；故障现象匹配；置信度 92%。\n建议按以下顺序排查：\n1. 查看电脑打印设置中的纸张尺寸。\n2. 确认纸盒中实际装的是 A4、Letter 或其他所需尺寸的纸张。\n3. 在打印机设置中选择与实际纸张一致的尺寸。\n4. 重新发送打印任务，确认提示是否消失。\n手册风险标注：低。\n\n来源：printer_LX2000.md · 第116-130行 · E08 · 打印到一半，机器突然停了，还显示纸张不对\n以上内容仅依据上述手册章节整理；如步骤提示停止使用或联系专业人员，请照做。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:sufficient",
+            "D1:llm_signals=fallback",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=E08,hint=E08)",
+            "G:accepted(E08,confidence=0.92)",
+            "H:answer_grounded",
+            "H:follow_up_open"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "diagnose"
+          ],
+          "final_action": "diagnose",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 1,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": "E08",
+          "source_count": 1,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "根据维修手册，您的情况匹配：打印到一半，机器突然停了，还显示纸张不对（E08）。\n适用性：型号 LX-2000 匹配；故障现象匹配；置信度 92%。\n建议按以下顺序排查：\n1. 查看电脑打印设置中的纸张尺寸。\n2. 确认纸盒中实际装的是 A4、Letter 或其他所需尺寸的纸张。\n3. 在打印机设置中选择与实际纸张一致的尺寸。\n4. 重新发送打印任务，确认提示是否消失。\n手册风险标注：低。\n\n来源：printer_LX2000.md · 第116-130行 · E08 · 打印到一半，机器突然停了，还显示纸张不对\n以上内容仅依据上述手册章节整理；如步骤提示停止使用或联系专业人员，请照做。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "B:sufficient",
+            "D1:llm_signals=used",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=E08,hint=E08)",
+            "G:accepted(E08,confidence=0.92)",
+            "H:answer_grounded",
+            "H:follow_up_open"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "risk",
+            "input": "lx-2000 打印一半停了",
+            "raw": {
+              "signals": [],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [
+          "paper_mismatch"
+        ],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "B:sufficient",
+          "D1:llm_signals=used",
+          "D1b:keyword_signals=0",
+          "D2:risk=low",
+          "F:retrieve(model=LX-2000,codes=E08,hint=E08)",
+          "G:accepted(E08,confidence=0.92)",
+          "H:answer_grounded",
+          "H:follow_up_open"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "FB-01",
+      "category": "feedback_loop",
+      "description": "诊断后否定具体提示：排除 E08，按最新现象重新命中 E19",
+      "messages": [
+        "LX-2000 打印一半停了",
+        "没提示纸张错"
+      ],
+      "expected": {
+        "turn_actions": [
+          "diagnose",
+          "diagnose"
+        ],
+        "final_action": "diagnose",
+        "ask_count": 0,
+        "model_ask_count": 0,
+        "fault_ask_count": 0,
+        "feedback_ask_count": 0,
+        "diagnosis_count": 2,
+        "excluded_codes": [
+          "E08"
+        ],
+        "code": "E19",
+        "risk_level": "low",
+        "require_sources": true,
+        "message_contains": [
+          "排除上一轮结论（E08）",
+          "E19",
+          "来源：printer_LX2000.md"
+        ]
+      },
+      "rule": {
+        "id": "FB-01",
+        "category": "feedback_loop",
+        "description": "诊断后否定具体提示：排除 E08，按最新现象重新命中 E19",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "diagnose",
+            "diagnose"
+          ],
+          "final_action": "diagnose",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 2,
+          "excluded_codes": [
+            "E08"
+          ],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": "E19",
+          "source_count": 1,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "已根据您的反馈排除上一轮结论（E08），并按最新现象重新匹配维修手册。\n\n根据维修手册，您的情况匹配：每次打到一半就停住，纸还皱成一团，拿出来又卡下一张（E19）。\n适用性：型号 LX-2000 匹配；故障现象匹配；置信度 78%。\n\n【安全警告】中高风险。须断电并等待定影组件冷却后再清理卡纸。禁止将手伸入运转中的滚轮或拆卸内部传动机构。\n手册风险标注：高。\n\n建议按以下顺序排查：\n1. 停止打印并关闭设备，等待内部高温部件冷却。\n2. 按用户手册允许的方式取出卡纸，检查纸张是否完整。\n3. 检查纸张是否受潮、卷曲或混入不同尺寸的纸张。\n4. 整理纸张并调整纸盒导板，重新装纸。\n5. 打印少量测试页；若重复卡纸，联系维修人员检查进纸机构。\n\n来源：printer_LX2000.md · 第369-384行 · E19 · 每次打到一半就停住，纸还皱成一团，拿出来又卡下一张\n以上内容仅依据上述手册章节整理；如步骤提示停止使用或联系专业人员，请照做。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "A:feedback(negative=true,resolved=false,progress=false,denied_codes=-,denied_categories=paper_mismatch,denied_text=没提示纸张错)",
+            "A:feedback_exclude(codes=E08,sources=LX2000-E08)",
+            "D1:llm_signals=fallback",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=-,exclude=E08)",
+            "G:accepted(E19,confidence=0.78)",
+            "H:answer_grounded",
+            "H:feedback_rediagnosed",
+            "H:follow_up_open"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "diagnose",
+            "diagnose"
+          ],
+          "final_action": "diagnose",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 2,
+          "excluded_codes": [
+            "E08"
+          ],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": "E19",
+          "source_count": 1,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "已根据您的反馈排除上一轮结论（E08），并按最新现象重新匹配维修手册。\n\n根据维修手册，您的情况匹配：每次打到一半就停住，纸还皱成一团，拿出来又卡下一张（E19）。\n适用性：型号 LX-2000 匹配；故障现象匹配；置信度 78%。\n\n【安全警告】中高风险。须断电并等待定影组件冷却后再清理卡纸。禁止将手伸入运转中的滚轮或拆卸内部传动机构。\n手册风险标注：高。\n\n建议按以下顺序排查：\n1. 停止打印并关闭设备，等待内部高温部件冷却。\n2. 按用户手册允许的方式取出卡纸，检查纸张是否完整。\n3. 检查纸张是否受潮、卷曲或混入不同尺寸的纸张。\n4. 整理纸张并调整纸盒导板，重新装纸。\n5. 打印少量测试页；若重复卡纸，联系维修人员检查进纸机构。\n\n来源：printer_LX2000.md · 第369-384行 · E19 · 每次打到一半就停住，纸还皱成一团，拿出来又卡下一张\n以上内容仅依据上述手册章节整理；如步骤提示停止使用或联系专业人员，请照做。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "A:feedback(negative=true,resolved=false,progress=false,denied_codes=-,denied_categories=paper_mismatch,denied_text=没提示纸张错)",
+            "A:feedback_exclude(codes=E08,sources=LX2000-E08)",
+            "D1:llm_signals=used",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=-,exclude=E08)",
+            "G:accepted(E19,confidence=0.78)",
+            "H:answer_grounded",
+            "H:feedback_rediagnosed",
+            "H:follow_up_open"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "risk",
+            "input": "lx-2000 打印一半停了",
+            "raw": {
+              "signals": [],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          },
+          {
+            "kind": "risk",
+            "input": "lx-2000 打印一半停了 没提示纸张错",
+            "raw": {
+              "signals": [],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [
+          "paper_mismatch"
+        ],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "A:feedback(negative=true,resolved=false,progress=false,denied_codes=-,denied_categories=paper_mismatch,denied_text=没提示纸张错)",
+          "A:feedback_exclude(codes=E08,sources=LX2000-E08)",
+          "D1:llm_signals=used",
+          "D1b:keyword_signals=0",
+          "D2:risk=low",
+          "F:retrieve(model=LX-2000,codes=-,exclude=E08)",
+          "G:accepted(E19,confidence=0.78)",
+          "H:answer_grounded",
+          "H:feedback_rediagnosed",
+          "H:follow_up_open"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "FB-02",
+      "category": "feedback_loop",
+      "description": "诊断后仅说还是不行：排除 E08 后重新匹配 E19",
+      "messages": [
+        "LX-2000 打印一半停了",
+        "还是不行"
+      ],
+      "expected": {
+        "turn_actions": [
+          "diagnose",
+          "diagnose"
+        ],
+        "final_action": "diagnose",
+        "ask_count": 0,
+        "feedback_ask_count": 0,
+        "diagnosis_count": 2,
+        "excluded_codes": [
+          "E08"
+        ],
+        "code": "E19",
+        "risk_level": "low",
+        "require_sources": true,
+        "message_contains": [
+          "排除上一轮结论（E08）",
+          "E19"
+        ]
+      },
+      "rule": {
+        "id": "FB-02",
+        "category": "feedback_loop",
+        "description": "诊断后仅说还是不行：排除 E08 后重新匹配 E19",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "diagnose",
+            "diagnose"
+          ],
+          "final_action": "diagnose",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 2,
+          "excluded_codes": [
+            "E08"
+          ],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": "E19",
+          "source_count": 1,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "已根据您的反馈排除上一轮结论（E08），并按最新现象重新匹配维修手册。\n\n根据维修手册，您的情况匹配：每次打到一半就停住，纸还皱成一团，拿出来又卡下一张（E19）。\n适用性：型号 LX-2000 匹配；故障现象匹配；置信度 81%。\n\n【安全警告】中高风险。须断电并等待定影组件冷却后再清理卡纸。禁止将手伸入运转中的滚轮或拆卸内部传动机构。\n手册风险标注：高。\n\n建议按以下顺序排查：\n1. 停止打印并关闭设备，等待内部高温部件冷却。\n2. 按用户手册允许的方式取出卡纸，检查纸张是否完整。\n3. 检查纸张是否受潮、卷曲或混入不同尺寸的纸张。\n4. 整理纸张并调整纸盒导板，重新装纸。\n5. 打印少量测试页；若重复卡纸，联系维修人员检查进纸机构。\n\n来源：printer_LX2000.md · 第369-384行 · E19 · 每次打到一半就停住，纸还皱成一团，拿出来又卡下一张\n以上内容仅依据上述手册章节整理；如步骤提示停止使用或联系专业人员，请照做。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "A:feedback(negative=true,resolved=false,progress=false,denied_codes=-,denied_categories=-,denied_text=还是不行)",
+            "A:feedback_exclude(codes=E08,sources=LX2000-E08)",
+            "D1:llm_signals=fallback",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=-,exclude=E08)",
+            "G:accepted(E19,confidence=0.81)",
+            "H:answer_grounded",
+            "H:feedback_rediagnosed",
+            "H:follow_up_open"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "diagnose",
+            "diagnose"
+          ],
+          "final_action": "diagnose",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 2,
+          "excluded_codes": [
+            "E08"
+          ],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": "E19",
+          "source_count": 1,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "已根据您的反馈排除上一轮结论（E08），并按最新现象重新匹配维修手册。\n\n根据维修手册，您的情况匹配：每次打到一半就停住，纸还皱成一团，拿出来又卡下一张（E19）。\n适用性：型号 LX-2000 匹配；故障现象匹配；置信度 81%。\n\n【安全警告】中高风险。须断电并等待定影组件冷却后再清理卡纸。禁止将手伸入运转中的滚轮或拆卸内部传动机构。\n手册风险标注：高。\n\n建议按以下顺序排查：\n1. 停止打印并关闭设备，等待内部高温部件冷却。\n2. 按用户手册允许的方式取出卡纸，检查纸张是否完整。\n3. 检查纸张是否受潮、卷曲或混入不同尺寸的纸张。\n4. 整理纸张并调整纸盒导板，重新装纸。\n5. 打印少量测试页；若重复卡纸，联系维修人员检查进纸机构。\n\n来源：printer_LX2000.md · 第369-384行 · E19 · 每次打到一半就停住，纸还皱成一团，拿出来又卡下一张\n以上内容仅依据上述手册章节整理；如步骤提示停止使用或联系专业人员，请照做。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "A:feedback(negative=true,resolved=false,progress=false,denied_codes=-,denied_categories=-,denied_text=还是不行)",
+            "A:feedback_exclude(codes=E08,sources=LX2000-E08)",
+            "D1:llm_signals=used",
+            "D1b:keyword_signals=0",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=-,exclude=E08)",
+            "G:accepted(E19,confidence=0.81)",
+            "H:answer_grounded",
+            "H:feedback_rediagnosed",
+            "H:follow_up_open"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "risk",
+            "input": "lx-2000 打印一半停了",
+            "raw": {
+              "signals": [],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          },
+          {
+            "kind": "risk",
+            "input": "lx-2000 打印一半停了 还是不行",
+            "raw": {
+              "signals": [],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [
+          "paper_mismatch"
+        ],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "A:feedback(negative=true,resolved=false,progress=false,denied_codes=-,denied_categories=-,denied_text=还是不行)",
+          "A:feedback_exclude(codes=E08,sources=LX2000-E08)",
+          "D1:llm_signals=used",
+          "D1b:keyword_signals=0",
+          "D2:risk=low",
+          "F:retrieve(model=LX-2000,codes=-,exclude=E08)",
+          "G:accepted(E19,confidence=0.81)",
+          "H:answer_grounded",
+          "H:feedback_rediagnosed",
+          "H:follow_up_open"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "FB-03",
+      "category": "feedback_loop",
+      "description": "诊断后否定卡纸并给出新现象：排除 E02，改判异响 E10",
+      "messages": [
+        "LX-2000 卡纸了",
+        "没卡纸，就是一直响"
+      ],
+      "expected": {
+        "turn_actions": [
+          "diagnose",
+          "diagnose"
+        ],
+        "final_action": "diagnose",
+        "ask_count": 0,
+        "feedback_ask_count": 0,
+        "diagnosis_count": 2,
+        "excluded_codes": [
+          "E02"
+        ],
+        "code": "E10",
+        "risk_level": "low",
+        "require_sources": true,
+        "message_contains": [
+          "排除上一轮结论（E02）",
+          "E10"
+        ]
+      },
+      "rule": {
+        "id": "FB-03",
+        "category": "feedback_loop",
+        "description": "诊断后否定卡纸并给出新现象：排除 E02，改判异响 E10",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "diagnose",
+            "diagnose"
+          ],
+          "final_action": "diagnose",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 2,
+          "excluded_codes": [
+            "E02"
+          ],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": "E10",
+          "source_count": 1,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "已根据您的反馈排除上一轮结论（E02），并按最新现象重新匹配维修手册。\n\n根据维修手册，您的情况匹配：打印机一直响，里面咔咔响个不停，还带着震动（E10）。\n适用性：型号 LX-2000 匹配；故障现象匹配；置信度 88%。\n\n【安全警告】高风险。禁止在通电状态下拆机或触摸运动部件。不得强行转动齿轮或拆卸电机和定影组件。\n手册风险标注：高。\n\n建议按以下顺序排查：\n1. 立即停止打印任务。\n2. 关闭电源；若伴随冒烟、火花或焦味，切勿再次通电。\n3. 拔掉电源插头，等待设备冷却。\n4. 仅检查用户手册允许开启的纸盒及检修盖，查看是否存在可安全取出的碎纸。\n5. 若异响来自机器内部，停止使用并安排专业维修。\n\n来源：printer_LX2000.md · 第147-162行 · E10 · 打印机一直响，里面咔咔响个不停，还带着震动\n以上内容仅依据上述手册章节整理；如步骤提示停止使用或联系专业人员，请照做。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "A:feedback(negative=true,resolved=false,progress=false,denied_codes=-,denied_categories=paper_jam,denied_text=没卡纸,就是一直响)",
+            "A:feedback_exclude(codes=E02,sources=LX2000-E02)",
+            "D1:llm_signals=fallback",
+            "D1b:keyword_signals=1",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=-,exclude=E02)",
+            "G:accepted(E10,confidence=0.88)",
+            "H:answer_grounded",
+            "H:feedback_rediagnosed",
+            "H:follow_up_open"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "diagnose",
+            "diagnose"
+          ],
+          "final_action": "diagnose",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 2,
+          "excluded_codes": [
+            "E02"
+          ],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": "E10",
+          "source_count": 1,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "已根据您的反馈排除上一轮结论（E02），并按最新现象重新匹配维修手册。\n\n根据维修手册，您的情况匹配：打印机一直响，里面咔咔响个不停，还带着震动（E10）。\n适用性：型号 LX-2000 匹配；故障现象匹配；置信度 88%。\n\n【安全警告】高风险。禁止在通电状态下拆机或触摸运动部件。不得强行转动齿轮或拆卸电机和定影组件。\n手册风险标注：高。\n\n建议按以下顺序排查：\n1. 立即停止打印任务。\n2. 关闭电源；若伴随冒烟、火花或焦味，切勿再次通电。\n3. 拔掉电源插头，等待设备冷却。\n4. 仅检查用户手册允许开启的纸盒及检修盖，查看是否存在可安全取出的碎纸。\n5. 若异响来自机器内部，停止使用并安排专业维修。\n\n来源：printer_LX2000.md · 第147-162行 · E10 · 打印机一直响，里面咔咔响个不停，还带着震动\n以上内容仅依据上述手册章节整理；如步骤提示停止使用或联系专业人员，请照做。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "A:feedback(negative=true,resolved=false,progress=false,denied_codes=-,denied_categories=paper_jam,denied_text=没卡纸,就是一直响)",
+            "A:feedback_exclude(codes=E02,sources=LX2000-E02)",
+            "D1:llm_signals=used",
+            "D1b:keyword_signals=1",
+            "D2:risk=low",
+            "F:retrieve(model=LX-2000,codes=-,exclude=E02)",
+            "G:accepted(E10,confidence=0.88)",
+            "H:answer_grounded",
+            "H:feedback_rediagnosed",
+            "H:follow_up_open"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "risk",
+            "input": "lx-2000 卡纸了",
+            "raw": {
+              "signals": [],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          },
+          {
+            "kind": "risk",
+            "input": "lx-2000 卡纸了 没卡纸,就是一直响",
+            "raw": {
+              "signals": [
+                {
+                  "category": "abnormal_noise",
+                  "evidence": "一直响",
+                  "negated": false
+                }
+              ],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [
+          "paper_jam",
+          "noise"
+        ],
+        "accepted_llm_risk_signals": [
+          {
+            "category": "abnormal_noise",
+            "label": "异响",
+            "evidence": "一直响",
+            "source": "llm",
+            "negated": false
+          }
+        ],
+        "stage_trace": [
+          "A:input_accumulated",
+          "A:feedback(negative=true,resolved=false,progress=false,denied_codes=-,denied_categories=paper_jam,denied_text=没卡纸,就是一直响)",
+          "A:feedback_exclude(codes=E02,sources=LX2000-E02)",
+          "D1:llm_signals=used",
+          "D1b:keyword_signals=1",
+          "D2:risk=low",
+          "F:retrieve(model=LX-2000,codes=-,exclude=E02)",
+          "G:accepted(E10,confidence=0.88)",
+          "H:answer_grounded",
+          "H:feedback_rediagnosed",
+          "H:follow_up_open"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "FB-04",
+      "category": "feedback_loop",
+      "description": "诊断后明确说解决了：正常结束会话并返回 resolved",
+      "messages": [
+        "LX-2000 卡纸了",
+        "解决了"
+      ],
+      "expected": {
+        "turn_actions": [
+          "diagnose",
+          "resolved"
+        ],
+        "final_action": "resolved",
+        "ask_count": 0,
+        "feedback_ask_count": 0,
+        "diagnosis_count": 1,
+        "excluded_codes": [],
+        "risk_level": "low",
+        "message_contains": [
+          "已解决"
+        ]
+      },
+      "rule": {
+        "id": "FB-04",
+        "category": "feedback_loop",
+        "description": "诊断后明确说解决了：正常结束会话并返回 resolved",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "diagnose",
+            "resolved"
+          ],
+          "final_action": "resolved",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 1,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "好的，已记录本轮问题为已解决。如果之后再次出现，可以随时描述现象重新排查。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "A:feedback(negative=false,resolved=true,progress=false,denied_codes=-,denied_categories=-,denied_text=-)",
+            "H:session_resolved"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "diagnose",
+            "resolved"
+          ],
+          "final_action": "resolved",
+          "ask_count": 0,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 0,
+          "diagnosis_count": 1,
+          "excluded_codes": [],
+          "reason_code": null,
+          "follow_up_count": null,
+          "asked_slots_count": null,
+          "risk_level": "low",
+          "queue": null,
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [],
+          "ticket_present": false,
+          "message": "好的，已记录本轮问题为已解决。如果之后再次出现，可以随时描述现象重新排查。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "A:feedback(negative=false,resolved=true,progress=false,denied_codes=-,denied_categories=-,denied_text=-)",
+            "H:session_resolved"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "risk",
+            "input": "lx-2000 卡纸了",
+            "raw": {
+              "signals": [],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [
+          "paper_jam"
+        ],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "A:feedback(negative=false,resolved=true,progress=false,denied_codes=-,denied_categories=-,denied_text=-)",
+          "H:session_resolved"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    },
+    {
+      "id": "FB-05",
+      "category": "feedback_loop",
+      "description": "反馈含糊时独立追问两次后转人工，不回到型号追问",
+      "messages": [
+        "LX-2000 卡纸了",
+        "有点道理",
+        "我也不知道",
+        "随便吧"
+      ],
+      "expected": {
+        "turn_actions": [
+          "diagnose",
+          "ask",
+          "ask",
+          "handoff"
+        ],
+        "final_action": "handoff",
+        "reason_code": "feedback_unresolved",
+        "ask_count": 2,
+        "model_ask_count": 0,
+        "fault_ask_count": 0,
+        "feedback_ask_count": 2,
+        "follow_up_count": 2,
+        "asked_slots_count": 2,
+        "diagnosis_count": 1,
+        "excluded_codes": [],
+        "risk_level": "low",
+        "queue": "general_after_sales",
+        "out_of_scope": false,
+        "message_contains": [
+          "转人工",
+          "交接单"
+        ]
+      },
+      "rule": {
+        "id": "FB-05",
+        "category": "feedback_loop",
+        "description": "反馈含糊时独立追问两次后转人工，不回到型号追问",
+        "passed": true,
+        "actual": {
+          "turn_actions": [
+            "diagnose",
+            "ask",
+            "ask",
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 2,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 2,
+          "diagnosis_count": 1,
+          "excluded_codes": [],
+          "reason_code": "feedback_unresolved",
+          "follow_up_count": 2,
+          "asked_slots_count": 2,
+          "risk_level": "low",
+          "queue": "general_after_sales",
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [
+            "E02"
+          ],
+          "ticket_present": true,
+          "message": "上一轮诊断已被您否定。重新匹配后仍无法确定其他安全适用的手册章节，继续尝试可能造成误判。已转人工，并在交接单中注明已排除的章节。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "A:feedback(negative=false,resolved=false,progress=false,denied_codes=-,denied_categories=-,denied_text=-)",
+            "A:feedback_ambiguous",
+            "C:feedback_limit_reached"
+          ]
+        },
+        "failures": []
+      },
+      "llm": {
+        "actual": {
+          "turn_actions": [
+            "diagnose",
+            "ask",
+            "ask",
+            "handoff"
+          ],
+          "final_action": "handoff",
+          "ask_count": 2,
+          "model_ask_count": 0,
+          "fault_ask_count": 0,
+          "feedback_ask_count": 2,
+          "diagnosis_count": 1,
+          "excluded_codes": [],
+          "reason_code": "feedback_unresolved",
+          "follow_up_count": 2,
+          "asked_slots_count": 2,
+          "risk_level": "low",
+          "queue": "general_after_sales",
+          "out_of_scope": false,
+          "code": null,
+          "source_count": 0,
+          "candidate_codes": [
+            "E02"
+          ],
+          "ticket_present": true,
+          "message": "上一轮诊断已被您否定。重新匹配后仍无法确定其他安全适用的手册章节，继续尝试可能造成误判。已转人工，并在交接单中注明已排除的章节。",
+          "stage_trace": [
+            "A:input_accumulated",
+            "A:feedback(negative=false,resolved=false,progress=false,denied_codes=-,denied_categories=-,denied_text=-)",
+            "A:feedback_ambiguous",
+            "C:feedback_limit_reached"
+          ]
+        },
+        "failures": [],
+        "passed": true,
+        "calls": [
+          {
+            "kind": "risk",
+            "input": "lx-2000 卡纸了",
+            "raw": {
+              "signals": [],
+              "uncertain": false
+            },
+            "notes": [],
+            "ok": true
+          }
+        ],
+        "accepted_symptom_categories": [
+          "paper_jam"
+        ],
+        "accepted_llm_risk_signals": [],
+        "stage_trace": [
+          "A:input_accumulated",
+          "A:feedback(negative=false,resolved=false,progress=false,denied_codes=-,denied_categories=-,denied_text=-)",
+          "A:feedback_ambiguous",
+          "C:feedback_limit_reached"
+        ]
+      },
+      "delta": {
+        "changed": false,
+        "differences": {}
+      }
+    }
+  ]
+}
